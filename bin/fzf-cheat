@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "Ctrl-r			Search through command history."
+echo "Ctrl-o			Find a file."
+echo "Alt-o			Open a file/dir using default editor ($EDITOR)"
+echo "Alt-Shift-o		Open a file/dir using xdg-open or open command"
+echo "Alt-c			cd into sub-directories (recursively searched)."
+echo "Alt-Shift-c		cd into sub-directories, including hidden ones."
