@@ -1,0 +1,91 @@
+#!/usr/bin/env sh
+#        ██
+#       ░██
+#      ██████ ██████████  ██   ██ ██   ██
+#     ░░░██░ ░░██░░██░░██░██  ░██░░██ ██
+#       ░██   ░██ ░██ ░██░██  ░██ ░░███
+#       ░██   ░██ ░██ ░██░██  ░██  ██░██
+#       ░░██  ███ ░██ ░██░░██████ ██ ░░██
+#        ░░  ░░░  ░░  ░░  ░░░░░░ ░░   ░░
+#           ██               ██
+#          ░██              ░██
+#  ██████ ██████  ██████   ██████ ██   ██  ██████
+# ██░░░░ ░░░██░  ░░░░░░██ ░░░██░ ░██  ░██ ██░░░░
+#░░█████   ░██    ███████   ░██  ░██  ░██░░█████
+# ░░░░░██  ░██   ██░░░░██   ░██  ░██  ░██ ░░░░░██
+# ██████   ░░██ ░░████████  ░░██ ░░██████ ██████
+#░░░░░░     ░░   ░░░░░░░░    ░░   ░░░░░░ ░░░░░░
+
+FULL=▓
+EMPTY=░
+EOL=▒
+DEF="default"
+C0="colour0"
+C1="colour9"
+C2="colour10"
+C3="colour11"
+C4="colour12"
+C5="colour13"
+C6="colour14"
+C7="colour15"
+C8="colour252"
+C9="colour239"
+
+draw() {
+	perc=$1
+	SIZE=$2
+	inc=$((perc * SIZE / 100))
+	out=
+	v=0
+	while [ "$v" -le $((SIZE - 1)) ]; do
+		if [ "$v" -le "$inc" ]; then
+			out="$out#[default]#[fg=$C4]${EMPTY}"
+		else
+			out="$out#[default]#[fg=$C9]${FULL}"
+		fi
+		v=$((v + 1))
+	done
+	echo "$out"
+}
+temp() {
+	#t=$(sensors | awk '/Core\ 0/ {gsub(/\+/,"",$3); gsub(/\..+/,"",$3)    ; print $3}')
+	t=$(/usr/local/bin/istats cpu temp | awk '{ print $3 }' | sed s/°C//)
+	t=$(printf %.0f ${t})
+	tc=$C3
+	[ $(echo "${t} >= 75" | bc) ] && tc=$C1
+	[ $(echo "${t} <= 50" | bc) ] && tc=$C4
+	echo "#[bg=${C0},fg=${tc}]${t}°c"
+}
+bat() {
+
+	st=$(~/bin/battstat {i})
+	capacity=$(~/bin/battstat {p} | sed 's/%//')
+	[ "$capacity" -lt 10 ] && fg=$C1 || fg=$C4
+	echo "#[fg=${fg},bg=${C0}]${st}${capacity}%"
+}
+cpu() {
+	#CPU_USE=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage}')
+	CPU_USE=$(ps -A -o %cpu | awk '{s+=$1} END {print s}')
+	printf "%.0f" "$CPU_USE"
+}
+ram() {
+	#free | awk '/Mem:/ {print int($3/$2 * 100.0)}'
+	echo "2"
+}
+vpn() {
+	pgrep openconnect >/dev/null 2>&1 && echo "#[fg=3]VPN"
+}
+clock() {
+	mtime=$(date +'%H:%M')
+	myear=$(date +'%b-%e')
+	mday=$(date +'%a')
+	echo "#[bg=$C0,fg=$C7] $mtime #[fg=$C5]$mday#[fg=$C7] $myear #[default]#[fg=$C0]$EOL"
+}
+front() {
+	echo "#[fg=${C9}]░▒▓█"
+}
+
+CPU_INFO=$(cpu)
+RAM_INFO=$(ram)
+#echo "$(front)$(bat) $(draw "$RAM_INFO" 5)$(temp) $(draw "$CPU_INFO" 7)$(vpn)$(clock)"
+echo "$(front)$(bat) $(draw "$RAM_INFO" 5)$(temp) $(draw "$CPU_INFO" 7)$(vpn)$(clock)"
