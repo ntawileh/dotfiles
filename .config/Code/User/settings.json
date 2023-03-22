@@ -1,0 +1,71 @@
+{
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "editor.fontFamily": "'FiraCode Nerd Font Mono'",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 16,
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.openPositioning": "first",
+  "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}${separator}${dirty}",
+  "telemetry.telemetryLevel": "off",
+  "eslint.alwaysShowStatus": true,
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "vsicons.dontShowNewVersionMessage": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "C_Cpp.default.intelliSenseMode": "clang-x64",
+  "editor.formatOnSave": true,
+  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.quoteStyle": "single",
+  "prettier.singleQuote": true,
+  "vim.cursorStylePerMode.normal": "block",
+  "vim.useSystemClipboard": true,
+  "vim.handleKeys": {
+    "<C-b>": false,
+    "<C-d>": false
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "explorer.confirmDelete": false,
+  "redhat.telemetry.enabled": false,
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "editor.bracketPairColorization.enabled": true,
+  "workbench.preferredDarkColorTheme": "One Dark Pro",
+  "editor.minimap.enabled": false,
+  "files.associations": {
+    "*.html": "html"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "window.commandCenter": true,
+  "npm.keybindingsChangedWarningShown": true,
+  "idf.espIdfPath": "/Users/nadimtawileh/esp/esp-idf",
+  "idf.pythonBinPath": "/Users/nadimtawileh/.espressif/python_env/idf4.4_py3.10_env/bin/python",
+  "idf.toolsPath": "/Users/nadimtawileh/.espressif",
+  "idf.customExtraPaths": "/Users/nadimtawileh/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32-elf/bin:/Users/nadimtawileh/.espressif/tools/xtensa-esp32s2-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32s2-elf/bin:/Users/nadimtawileh/.espressif/tools/xtensa-esp32s3-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32s3-elf/bin:/Users/nadimtawileh/.espressif/tools/riscv32-esp-elf/esp-2021r2-patch3-8.4.0/riscv32-esp-elf/bin:/Users/nadimtawileh/.espressif/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin:/Users/nadimtawileh/.espressif/tools/esp32s2ulp-elf/2.28.51-esp-20191205/esp32s2ulp-elf-binutils/bin:/Users/nadimtawileh/.espressif/tools/cmake/3.23.1/CMake.app/Contents/bin:/Users/nadimtawileh/.espressif/tools/openocd-esp32/v0.11.0-esp32-20220411/openocd-esp32/bin:/Users/nadimtawileh/.espressif/tools/ninja/1.10.2",
+  "idf.customExtraVars": "{\"OPENOCD_SCRIPTS\":\"/Users/nadimtawileh/.espressif/tools/openocd-esp32/v0.11.0-esp32-20220411/openocd-esp32/share/openocd/scripts\"}",
+  "idf.gitPath": "git",
+  "cmake.configureOnOpen": true,
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "arduino.useArduinoCli": true
+}
