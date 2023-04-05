@@ -38,6 +38,29 @@ set -gx IDF_PATH $HOME/esp/esp-idf
 set -gx EDITOR vim
 set -gx PATH $PATH $HOME/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/local/opt/python@3/libexec/bin
 
+set -U FZF_DEFAULT_COMMAND "fd -H --ignore_file=$HOME/.config/fd/ignore_file"
+set -Ux FZF_DEFAULT_OPTS "--reverse \
+		--border rounded \
+		--no-info \
+		--pointer='' \
+		--marker=' ' \
+		--ansi \
+		--color='16,bg+:-1,gutter:-1,prompt:4,pointer:5,marker:6'"
+	
+set -Ux FZF_TMUX_OPTS "-p \
+		--reverse \
+		--border rounded \
+		--no-info \
+		--pointer='' \
+		--marker=' ' \
+		--ansi \
+		--color='16,bg+:-1,gutter:-1,prompt:4,pointer:5,marker:6'"
+
+set -Ux FZF_CTRL_R_OPTS "--border-label=' history ' \
+		--header='ctrl-d: delete' \
+		--prompt='  '"
+
+set fzf_preview_dir_cmd 'lsd --blocks permission,links,user,size,date,name --date relative -l'
 
 set -gx GOPATH $HOME/go
 set -gx GOBIN $GOPATH/bin
@@ -45,5 +68,6 @@ set -gx GOBIN $GOPATH/bin
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"; end
 
+zoxide init fish | source
 starship init fish | source
 
