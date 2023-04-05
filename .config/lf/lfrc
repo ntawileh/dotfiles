@@ -1,0 +1,132 @@
+######################## Settings
+set shell /usr/local/bin/fish
+set hidden true
+set ignorecase true
+set icons true
+set promptfmt "\033[34;1m%d\033[0m\033[1m%f\033[0m"
+set previewer ~/.config/lf/previewer.sh
+
+######################## Commands
+# Mkdir
+cmd mkdir ${{
+  printf "Directory name: \n"
+  read ans
+  mkdir $ans
+}}
+
+# Touch
+cmd touch ${{
+  printf "File name: \n"
+  read ans
+  #$EDITOR $ans
+  touch $ans
+}}
+
+# Shell but with output shown
+cmd shellcmd ${{
+  printf "Shell command: \n"
+  read ans
+  $ans
+
+  printf "\n"
+  printf "press <enter> key to continue\n"
+  read ans
+}}
+
+# Move to ~/.trash with prompt
+cmd trash ${{
+  printf "sure you want to move this item to trash? \n"
+  printf "<enter> to move to trash, <ctrl-c> to abort \n"
+
+  read ans
+
+  %set -f; mv $fx ~/.Trash
+}}
+
+# Open
+
+# Open with $EDITOR or open based on type of file
+# # Note: this command is hijacked (redefined) when using nvim's lf plugin,
+# # meaning that this command is only used if lf is opened from the terminal
+cmd open ${{
+	$HOME/.config/lf/lfrunner.sh
+
+#   	case $(file --mime-type $f -b) in
+#      text/*) $EDITOR $fx;;
+#      *) for f in $fx; do open $f > /dev/null 2> /dev/null & done;;
+#	esac
+}}
+
+cmd help ${{
+  printf "\n\n---------------- Selection --------------\n\n"
+  printf "[<space>] select\n"
+  printf "[v] invert selection\n"
+  printf "[u] unmark all selections\n"
+  printf "[c] clear copied or cut files\n"
+  printf "\n\n---------------- Modify --------------\n\n"
+  printf "[a] touch\n"
+  printf "[A] mkdir\n"
+  printf "[d] trash\n"
+  printf "[D] delete\n"
+  printf "[p] paste\n"
+  printf "[x] cut\n"
+  printf "[y] copy\n"
+  printf "\n\n----------------- Open --------------\n\n"
+  printf "[S] open $f\n"
+  printf "[e] Edit with Nvim\n"
+  printf "[E] Edit with Helix\n"
+  printf "[C] Edit with Code\n"
+  printf "\n\n----------------- Filter, Search, Sort --------------\n\n"
+  printf "[/] search for input (move forward [n], backward [N])\n"
+  printf "[:setfilter $] filter by $\n"
+  printf "[s] sortBy $f\n"
+  printf "\n\n----------------- Shell --------------\n\n"
+  printf "[$] shellcmd (with output shown)\n"
+  printf "[%] shellcmd while piping the input from the ui and output to the ui\n"
+  printf "[|] shell (output hidden)\n"
+  printf "[!] shellwait (with output shown, waits for button to be pressed to go back to the ui)\n"
+  printf "[&] shellasync (runs command in the background)\n"
+  printf "\n\n----------------- Movement --------------\n\n"
+  printf "[hjkl] move\n"
+  printf "[<c-u>] half page up\n"
+  printf "[<c-d>] half page down\n"
+  printf "[<c-b>] page up\n"
+  printf "[<c-f>] page down\n"
+  printf "[gg] go top\n"
+  printf "[gh] go home (cd ~)\n"
+  printf "[G] go bottom\n"
+  printf "\n\n----------------- Commands --------------\n\n"
+  printf "[:] command pallete\n"
+  printf "[z] toggle (.hidden files, time, size, reverseOrder)\n\n"
+  printf "[.] toggle .hidden files\n"
+  printf "[R] reload\n"
+  printf "[q] Quit"
+  printf "[c-g] lazygit"
+  printf "[?] help\n"
+  printf "\n"
+  printf "press <enter> key to continue\n"
+  read ans
+}}
+
+
+########################## Bindings
+# Basic Functions
+map . set hidden!
+map d trash
+map D delete
+map p paste
+map x cut
+map y copy
+map S $open $f
+# Switch keymap for lf opened inside nvim and outside
+map <enter> open
+map e $bash open
+map <c-g> $lazygit
+map E $hx $f
+map C $code $f
+map R reload
+map a touch
+map A mkdir
+map \$ shellcmd
+map | shell
+map ? help
