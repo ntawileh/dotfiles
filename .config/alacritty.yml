@@ -17,14 +17,14 @@ import:
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
+env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  #TERM: alacritty
+  TERM: xterm-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -48,12 +48,12 @@ window:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
-  #  x: 0
-  #  y: 0
+  padding:
+    x: 14
+    y: 10
 
   # Spread additional padding evenly around the terminal content.
-  #dynamic_padding: false
+  dynamic_padding: false
 
   # Window decorations
   #
@@ -64,13 +64,13 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: full
+  decorations: buttonless
 
   # Background opacity
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.95
+  opacity: 0.9
 
   # Startup Mode (changes require restart)
   #
@@ -439,7 +439,7 @@ font:
   #thickness: 0.15
 
 # Live config reload (changes require restart)
-#live_config_reload: true
+live_config_reload: true
 
 # Shell
 #
@@ -768,6 +768,41 @@ key_bindings:
   - { key: C,         mods: Alt|Shift, chars: "\x1bC"                       }
   - { key: O,         mods: Alt,       chars: "\x1bo"                       }
   - { key: O,         mods: Alt|Shift, chars: "\x1bO"                       }
+  - { key: Key1, mods: Command, chars: "\x011" } # select tmux window 1
+  - { key: Key2, mods: Command, chars: "\x012" } #                ... 2
+  - { key: Key3, mods: Command, chars: "\x013" } #                ... 3
+  - { key: Key4, mods: Command, chars: "\x014" } #                ... 4
+  - { key: Key5, mods: Command, chars: "\x015" } #                ... 5
+  - { key: Key6, mods: Command, chars: "\x016" } #                ... 6
+  - { key: Key7, mods: Command, chars: "\x017" } #                ... 7
+  - { key: Key8, mods: Command, chars: "\x018" } #                ... 8
+  - { key: Key9, mods: Command, chars: "\x019" } #                ... 9
+  - { key: Comma, mods: Command, chars: "\x01," } # rename the current tmux window
+
+  - { key: E, mods: Command, chars: "\x01\"" } # split tmux window vertically
+  - { key: E, mods: Command|Shift, chars: "\x01|" } # split tmux window horizontally
+  - { key: F, mods: Command|Shift, chars: "\x01\x5b\x2f" } # start tmux search mode
+  - { key: F, mods: Command, chars: "lfcd\n" } # open file manager 'gokcehan/lf'
+  - { key: G, mods: Command, chars: "\x01g" } # open git manager 'jesseduffield/lazygit'
+  - { key: J, mods: Command, chars: "\x01T" } # open t - tmux smart session manager
+  - { key: K, mods: Command, chars: "\x01s" } # open interactive tmux session client
+  - { key: L, mods: Command, chars: "\x01L" } # switch to the last tmux session
+  - { key: LBracket, mods: Command, chars: "\x0f" } # navigate back (ctrl+o)
+  - { key: LBracket, mods: Command|Shift, chars: "\x01p" } # switch to next tmux window
+  - { key: O, mods: Command, chars: "\x01u" }
+  - { key: P, mods: Command, chars: ":GoToFile\n" } # files
+  - { key: P, mods: Command|Shift, chars: ":GoToCommand\n" } # commands
+  # - { key: Period, mods: Command, chars: "\x1b\x20\x2e\x0a" } (causes popup to be unfocused)
+  - { key: Q, mods: Command, chars: ":q\n" } # quit vim
+  - { key: R, mods: Command, chars: "\x1b\x5b\x41\x0a" }
+  - { key: RBracket, mods: Command, chars: "\x09" }
+  - { key: RBracket, mods: Command|Shift, chars: "\x01n" }
+  - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" } # save vim buffer
+  - { key: S, mods: Command|Shift, chars: ":wa\n" } # save all
+  - { key: Semicolon, mods: Command, chars: "\x02:" } # enter the tmux command prompt
+  - { key: T, mods: Command, chars: "\x01c" } # create a new tmux window
+  - { key: W, mods: Command, chars: "\x01x" } # kill the current pane
+  - { key: Z, mods: Command, chars: "\x01z" } # toggle zoom state of the current tmux pane
 
 
   #- { key: Paste,                                       action: Paste          }
