@@ -11,8 +11,9 @@
 import:
   #- ~/dotfiles/alacritty/.config/cobalt.yml
   # - ~/dotfiles/alacritty/.config/night-owl.yml
-  - ~/dotfiles/alacritty/.config/alacritty/purify.yml
+  # - ~/dotfiles/alacritty/.config/alacritty/purify.yml
   #- ~/dotfiles/alacritty/.config/dracula.yml
+  - ~/dotfiles/alacritty/.config/alacritty/catppuccin-mocha.yml 
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -174,7 +175,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 14.0
+  size: 18.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -788,7 +789,7 @@ key_bindings:
   - { key: K, mods: Command, chars: "\x01s" } # open interactive tmux session client
   - { key: L, mods: Command, chars: "\x01L" } # switch to the last tmux session
   - { key: LBracket, mods: Command, chars: "\x0f" } # navigate back (ctrl+o)
-  - { key: LBracket, mods: Command|Shift, chars: "\x01p" } # switch to next tmux window
+  - { key: LBracket, mods: Command|Shift, chars: "\x01j" } # switch to next tmux window
   - { key: O, mods: Command, chars: "\x01u" }
   - { key: P, mods: Command, chars: ":GoToFile\n" } # files
   - { key: P, mods: Command|Shift, chars: ":GoToCommand\n" } # commands
@@ -796,7 +797,7 @@ key_bindings:
   - { key: Q, mods: Command, chars: ":q\n" } # quit vim
   - { key: R, mods: Command, chars: "\x1b\x5b\x41\x0a" }
   - { key: RBracket, mods: Command, chars: "\x09" }
-  - { key: RBracket, mods: Command|Shift, chars: "\x01n" }
+  - { key: RBracket, mods: Command|Shift, chars: "\x01k" }
   - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" } # save vim buffer
   - { key: S, mods: Command|Shift, chars: ":wa\n" } # save all
   - { key: Semicolon, mods: Command, chars: "\x02:" } # enter the tmux command prompt
