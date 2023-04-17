@@ -5,7 +5,7 @@ set -g theme_display_date no
 set -g theme_display_nvm no
 set -g theme_color_scheme dracula
 #set -g theme_display_k8s_context yes
-set -g theme_display_git_master_branch yes
+set -g theme_display_git_master_branch no
 set -g theme_display_user ssh
 set -g theme_display_hostname ssh
 set -g theme_display_sudo_user yes
@@ -38,7 +38,7 @@ set -gx IDF_PATH $HOME/esp/esp-idf
 set -gx EDITOR vim
 set -gx PATH $PATH $HOME/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/local/opt/python@3/libexec/bin
 
-set -U FZF_DEFAULT_COMMAND "fd -H --ignore_file=$HOME/.config/fd/ignore_file"
+set -U FZF_DEFAULT_COMMAND "fd -H"
 set -Ux FZF_DEFAULT_OPTS "--reverse \
 		--border rounded \
 		--no-info \
