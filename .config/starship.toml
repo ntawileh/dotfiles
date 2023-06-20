@@ -10,7 +10,7 @@ disabled=false
 
 [character]
 error_symbol = "[✗](red) "
-vicmd_symbol = "[❮](green)"
+vicmd_symbol = "[](green)"
 
 [cmd_duration]
 show_milliseconds=true
