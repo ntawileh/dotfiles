@@ -39,34 +39,21 @@ set -gx EDITOR vim
 set -gx PATH $PATH $HOME/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/local/opt/python@3/libexec/bin
 
 set -U FZF_DEFAULT_COMMAND "fd -H"
-set -Ux FZF_DEFAULT_OPTS "--reverse \
-		--border rounded \
-		--no-info \
-		--pointer='' \
-		--marker=' ' \
-		--ansi \
-		--color='16,bg+:-1,gutter:-1,prompt:4,pointer:5,marker:6'"
-	
-set -Ux FZF_TMUX_OPTS "-p \
-		--reverse \
-		--border rounded \
-		--no-info \
-		--pointer='' \
-		--marker=' ' \
-		--ansi \
-		--color='16,bg+:-1,gutter:-1,prompt:4,pointer:5,marker:6'"
+set -gx FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --ansi --height=80% --preview-window=wrap --marker=" "'
 
-set -Ux FZF_CTRL_R_OPTS "--border-label=' history ' \
-		--header='ctrl-d: delete' \
-		--prompt='  '"
+#set -Ux FZF_TMUX_OPTS -p 
 
-set fzf_preview_dir_cmd 'lsd --blocks permission,links,user,size,date,name --date relative -l'
+set -gx fzf_history_opts "--border-label=command history" "--prompt= "
+set -gx fzf_directory_opts "--bind=ctrl-o:execute($EDITOR {} &> /dev/tty),alt-o:execute(open {} &> /dev/tty),ctrl-space:execute(qlmanage -p {} &> /dev/tty)"
+set -gx fzf_preview_dir_cmd 'lsd --color always --blocks permission,links,user,size,date,name --date relative -l'
 
 set -gx GOPATH $HOME/go
 set -gx GOBIN $GOPATH/bin
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"; end
+
+fzf_configure_bindings --git_status=\cs --git_log=\cg --history=\cr --variables=\ce --processes=\cp --directory=\cf
 
 zoxide init fish | source
 starship init fish | source

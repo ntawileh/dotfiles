@@ -78,7 +78,8 @@ Plug 'junegunn/vim-easy-align'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-Plug 'sainnhe/vim-color-forest-night'
+" Plug 'sainnhe/vim-color-forest-night'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -91,4 +92,4 @@ Plug 'prettier/vim-prettier', {
 call plug#end()
 
 
-"colorscheme forest-night
+colorscheme default "catppuccin_mocha
