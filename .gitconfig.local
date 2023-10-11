@@ -3,3 +3,6 @@
 	email = nadim@tawileh.com
 [init]
 	defaultBranch = main
+
+[includeIf "gitdir:~/docufi/"]
+    path = ~/docufi/.gitconfig
