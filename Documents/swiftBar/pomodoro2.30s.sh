@@ -72,7 +72,7 @@ notify_osd() {
     notify-send "$@" 2>/dev/null
   else
 #    osascript -e "display notification \"$*\" with title \"$TOMATO_ICON Pomodoro\"" 2>/dev/null
-	terminal-notifier -title "$TOMATO_ICON Pomo" -message "$*" -sound Blow
+	terminal-notifier -title "$TOMATO_ICON Pomo" -message "$*" -sound Sonumi
 
   fi
 }
