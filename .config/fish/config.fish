@@ -58,3 +58,10 @@ fzf_configure_bindings --git_status=\cs --git_log=\cg --history=\cr --variables=
 zoxide init fish | source
 starship init fish | source
 
+
+# pnpm
+set -gx PNPM_HOME "/Users/nadimtawileh/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

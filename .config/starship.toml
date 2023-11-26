@@ -1,3 +1,5 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 palette = "catppuccin_macchiato"
 
 scan_timeout = 10
@@ -39,6 +41,7 @@ style = "bold lavender"
 
 [gcloud]
 disabled=true
+
 
 [java]
 symbol = " "
