@@ -1,0 +1,121 @@
+{
+  "C_Cpp.default.intelliSenseMode": "clang-x64",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "arduino.useArduinoCli": true,
+  "cmake.configureOnOpen": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.cursorSurroundingLines": 8,
+  "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.fontFamily": "'FiraCode Nerd Font Mono'",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 16,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "eslint.alwaysShowStatus": true,
+  "explorer.confirmDelete": false,
+  "files.associations": {
+    "*.html": "html"
+  },
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "idf.customExtraPaths": "/Users/nadimtawileh/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32-elf/bin:/Users/nadimtawileh/.espressif/tools/xtensa-esp32s2-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32s2-elf/bin:/Users/nadimtawileh/.espressif/tools/xtensa-esp32s3-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32s3-elf/bin:/Users/nadimtawileh/.espressif/tools/riscv32-esp-elf/esp-2021r2-patch3-8.4.0/riscv32-esp-elf/bin:/Users/nadimtawileh/.espressif/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin:/Users/nadimtawileh/.espressif/tools/esp32s2ulp-elf/2.28.51-esp-20191205/esp32s2ulp-elf-binutils/bin:/Users/nadimtawileh/.espressif/tools/cmake/3.23.1/CMake.app/Contents/bin:/Users/nadimtawileh/.espressif/tools/openocd-esp32/v0.11.0-esp32-20220411/openocd-esp32/bin:/Users/nadimtawileh/.espressif/tools/ninja/1.10.2",
+  "idf.customExtraVars": {
+    "OPENOCD_SCRIPTS": "/Users/nadimtawileh/.espressif/tools/openocd-esp32/v0.11.0-esp32-20220411/openocd-esp32/share/openocd/scripts"
+  },
+  "idf.espIdfPath": "/Users/nadimtawileh/esp/esp-idf",
+  "idf.gitPath": "git",
+  "idf.pythonBinPath": "/Users/nadimtawileh/.espressif/python_env/idf4.4_py3.10_env/bin/python",
+  "idf.toolsPath": "/Users/nadimtawileh/.espressif",
+  "javascript.preferences.quoteStyle": "single",
+  "npm.keybindingsChangedWarningShown": true,
+  "prettier.singleQuote": true,
+  "redhat.telemetry.enabled": false,
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "typescript.preferences.quoteStyle": "single",
+  "vim.cursorStylePerMode.normal": "block",
+  "vim.handleKeys": {
+    "<C-b>": false,
+    "<C-d>": false
+  },
+  "vim.useSystemClipboard": true,
+  "vim.smartRelativeLine": true,
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "#a9dc7660",
+  "vim.highlightedyank.duration": 250,
+
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["g", "p", "d"],
+      "commands": ["editor.action.peekDefinition"]
+    },
+    {
+      "before": ["g", "h"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    },
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"]
+    },
+    {
+      "before": ["g", "p", "i"],
+      "commands": ["editor.action.peekImplementation"]
+    },
+    {
+      "before": ["g", "q"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.referenceSearch.trigger"]
+    },
+    {
+      "before": ["g", "t"],
+      "commands": ["editor.action.goToTypeDefinition"]
+    },
+    {
+      "before": ["g", "p", "t"],
+      "commands": ["editor.action.peekTypeDefinition"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.view.explorer"]
+    }
+  ],
+
+  "vsicons.dontShowNewVersionMessage": true,
+  "window.commandCenter": true,
+  "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}${separator}${dirty}",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.openPositioning": "first",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.preferredDarkColorTheme": "One Dark Pro",
+  "workbench.startupEditor": "newUntitledFile",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  }
+}
