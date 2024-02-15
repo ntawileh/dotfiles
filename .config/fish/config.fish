@@ -53,10 +53,12 @@ set -gx GOBIN $GOPATH/bin
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"; end
 
-fzf_configure_bindings --git_status=\cs --git_log=\cg --history=\cr --variables=\ce --processes=\cp --directory=\cf
+# fzf_configure_bindings --git_status=\cs --git_log=\cg --history=\cr --variables=\ce --processes=\cp --directory=\cf
+fzf_configure_bindings --git_status=\cs --git_log=\cg --variables=\ce --processes=\cp --directory=\cf
 
 zoxide init fish | source
 starship init fish | source
+atuin init fish | source
 
 
 # pnpm
