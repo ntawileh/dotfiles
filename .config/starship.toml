@@ -11,11 +11,11 @@ right_format = """$cmd_duration"""
 disabled=false
 
 [character]
-error_symbol = "[✗](red) "
+error_symbol = "[󰩈](red) "
 vicmd_symbol = "[](green)"
 
 [cmd_duration]
-show_milliseconds=true
+show_milliseconds=false
 show_notifications=true
 min_time_to_notify=45_000
 format = '[ ⏱  $duration]($style)'
@@ -45,6 +45,7 @@ disabled=true
 
 [java]
 symbol = " "
+disabled = true
 
 [kubernetes]
 disabled=true
@@ -60,6 +61,7 @@ disabled = true
 
 [docker_context]
 symbol = " "
+disabled = true
 
 [elixir]
 symbol = " "
@@ -122,6 +124,10 @@ style="green"
 
 [package]
 symbol = " "
+disabled = true
+
+[username]
+disabled = true
 
 [rust]
 symbol = " "
@@ -131,7 +137,14 @@ command = 'tmux refresh-client -S >/dev/null 2>&1'
 detect_folders  = ['.git'] 
 
 [python]
+
 python_binary = 'python3'
+
+[hostname]
+disabled = true
+
+[vagrant]
+disabled = true
 
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
@@ -244,3 +257,6 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
+
+
+
