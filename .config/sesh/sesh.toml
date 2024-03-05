@@ -1,3 +1,5 @@
+default_startup_script = "~/.config/sesh/scripts/default"
+
 [[startup_scripts]]
 session_path = "~/docufi/miami"
 script_path = "~/.config/sesh/scripts/node-pnpm"
