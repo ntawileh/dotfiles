@@ -64,6 +64,11 @@
   "vim.highlightedyank.enable": true,
   "vim.highlightedyank.color": "#a9dc7660",
   "vim.highlightedyank.duration": 250,
+  "vim.useCtrlKeys": true,
+  "vim.leader": "<space>",
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
 
   "vim.normalModeKeyBindings": [
     {
@@ -101,7 +106,29 @@
     {
       "before": ["<leader>", "e"],
       "commands": ["workbench.view.explorer"]
-    }
+    },
+    {
+      "before": ["leader", "w"],
+      "commands": [
+                "workbench.action.files.save",
+            ]
+     },
+     {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
   ],
 
   "vsicons.dontShowNewVersionMessage": true,
@@ -117,5 +144,6 @@
   "workbench.startupEditor": "newUntitledFile",
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
-  }
+  },
+  "eslint.codeActionsOnSave.rules": null,
 }
