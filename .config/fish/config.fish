@@ -37,6 +37,7 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 set -gx IDF_PATH $HOME/esp/esp-idf
 set -gx EDITOR vim
 set -gx PATH $PATH $HOME/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/local/opt/python@3/libexec/bin
+set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 set -U FZF_DEFAULT_COMMAND "fd -H"
 set -gx FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --ansi --height=80% --preview-window=wrap --marker=" "'
