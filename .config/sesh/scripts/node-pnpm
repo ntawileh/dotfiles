@@ -3,4 +3,4 @@ tmux split-window -v -l 30% "pnpm run dev"
 tmux select-pane -t :.+
 tmux send-keys "code ." Enter
 
-~/bin/tmux-session-changed
+#~/bin/tmux-session-changed
