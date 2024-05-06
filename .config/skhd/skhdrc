@@ -86,3 +86,5 @@ alt - tab : yabai -m window --focus recent
 # send window to monitor and follow focus
 shift + alt - x : yabai -m window --display 1; yabai -m display --focus 1
 shift + alt - z : yabai -m window --display 2; yabai -m display --focus 2
+
+ctrl + alt + cmd - r : yabai --restart-service"
