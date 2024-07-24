@@ -8,18 +8,18 @@ add_newline = true
 right_format = """$cmd_duration"""
 
 [line_break]
-disabled=false
+disabled = false
 
 [character]
 error_symbol = "[󰩈](red) "
 vicmd_symbol = "[](green)"
 
 [cmd_duration]
-show_milliseconds=false
-show_notifications=true
-min_time_to_notify=45_000
+show_milliseconds = false
+show_notifications = true
+min_time_to_notify = 45_000
 format = '[ ⏱  $duration]($style)'
-style="yellow"
+style = "yellow"
 
 [aws]
 symbol = "  "
@@ -32,7 +32,7 @@ symbol = " "
 symbol = " "
 
 [dart]
- symbol = " "
+symbol = " "
 
 [directory]
 read_only = " "
@@ -40,7 +40,7 @@ truncation_symbol = "…/"
 style = "bold lavender"
 
 [gcloud]
-disabled=true
+disabled = true
 
 
 [java]
@@ -48,7 +48,7 @@ symbol = " "
 disabled = true
 
 [kubernetes]
-disabled=true
+disabled = true
 
 [status]
 style = "red"
@@ -70,29 +70,29 @@ symbol = " "
 symbol = " "
 
 [git_commit]
-disabled=true
+disabled = true
 
 [git_branch]
-disabled=true
+disabled = true
 symbol = " "
-format="[\\[$symbol$branch\\]]($style) "
-style="fg:#bf5700" 
+format = "[\\[$symbol$branch\\]]($style) "
+style = "fg:#bf5700"
 #ignore_branches = ["master", "main"]
 
 [git_state]
-disabled=true
+disabled = true
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
 cherry_pick = "[🍒 PICKING](bold red)"
 
 [git_status]
-disabled=true
+disabled = true
 up_to_date = "✓ "
 deleted = "x"
 staged = '[++\($count\)](green)'
 ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
-style="fg:#bf5700" 
+style = "fg:#bf5700"
 
 [golang]
 symbol = " "
@@ -116,11 +116,11 @@ symbol = " "
 symbol = " "
 
 [nodejs]
-disabled=true
+disabled = true
 #symbol = ""
 symbol = "🤖 "
-format="[\\[$symbol($version)\\]]($style)"
-style="green"
+format = "[\\[$symbol($version)\\]]($style)"
+style = "green"
 
 [package]
 symbol = " "
@@ -133,8 +133,8 @@ disabled = true
 symbol = " "
 
 [custom.tmux]
-command = 'tmux refresh-client -S >/dev/null 2>&1' 
-detect_folders  = ['.git'] 
+command = 'tmux refresh-client -S >/dev/null 2>&1'
+detect_folders = ['.git']
 
 [python]
 
@@ -257,6 +257,3 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
-
-
-
