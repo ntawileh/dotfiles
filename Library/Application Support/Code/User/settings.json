@@ -109,26 +109,16 @@
     },
     {
       "before": ["leader", "w"],
-      "commands": [
-                "workbench.action.files.save",
-            ]
-     },
-     {
-            "before": [
-                ">"
-            ],
-            "commands": [
-                "editor.action.indentLines"
-            ]
-        },
-        {
-            "before": [
-                "<"
-            ],
-            "commands": [
-                "editor.action.outdentLines"
-            ]
-        },
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }
   ],
 
   "vsicons.dontShowNewVersionMessage": true,
@@ -139,11 +129,19 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  "workbench.iconTheme": "vscode-icons",
-  "workbench.preferredDarkColorTheme": "One Dark Pro",
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "workbench.startupEditor": "newUntitledFile",
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
   "eslint.codeActionsOnSave.rules": null,
+  "prisma.showPrismaDataPlatformNotification": false,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  }
 }
