@@ -35,6 +35,7 @@ return {
 			inlay_hints = { enabled = false },
 			---@type lspconfig.options
 			servers = {
+				eslint = {},
 				cssls = {},
 				tailwindcss = {
 					root_dir = function(...)
@@ -145,7 +146,21 @@ return {
 					},
 				},
 			},
-			setup = {},
+			setup = {
+				eslint = function()
+					require("lazyvim.util").lsp.on_attach(function(client, bufnr)
+						if client.name == "eslint" then
+							client.server_capabilities.documentFormattingProvider = true
+						elseif client.name == "tsserver" then
+							client.server_capabilities.documentFormattingProvider = false
+						end
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							buffer = bufnr,
+							command = "EslintFixAll",
+						})
+					end)
+				end,
+			},
 		},
 	},
 }

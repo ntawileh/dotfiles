@@ -10,9 +10,11 @@ vim.print = _G.dd
 require("config.lazy")
 
 require("lualine").setup({
-	options = { 
+	options = {
 		theme = "codedark",
-		section_separators = '', 
-		component_separators = ''
+		section_separators = "",
+		component_separators = "",
 	},
 })
+
+require("config/colors")
