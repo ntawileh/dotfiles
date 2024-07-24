@@ -4,7 +4,23 @@ name = "default"
 #default_startup_script = "~/.config/sesh/scripts/default"
 #startup_command = "nvim -c \":Telescope find_files\""
 
+#[[session]]
+#name = "code 💻"
+#path = "~/Documents/dev"
+#startup_script = "~/.config/sesh/scripts/node-pnpm"
+
 [[session]]
-name = "miami"
-path = "~/docufi/miami"
-startup_script = "~/.config/sesh/scripts/node-pnpm"
+name = "tmux config"
+path = "~/.config/tmux"
+startup_command = "nvim tmux.conf"
+
+[[session]]
+name = "Home 🏡"
+path = "~"
+startup_command = "l"
+
+[[session]]
+name = "second brain 🧠"
+path = "~/c/second-brain"
+startup_command = "nvim +ObsidianToday"
+
