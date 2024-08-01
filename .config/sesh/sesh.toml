@@ -21,6 +21,6 @@ startup_command = "l"
 
 [[session]]
 name = "second brain 🧠"
-path = "~/c/second-brain"
+path = "~/Documents/notes"
 startup_command = "nvim +ObsidianToday"
 
