@@ -61,5 +61,5 @@ keymap.set("n", "<leader>r", function()
 end)
 
 keymap.set("n", "<leader>i", function()
-	require("ntawileh.lsp").toggleInlayHints()
+	require("ntawileh.lsp").hello()
 end)

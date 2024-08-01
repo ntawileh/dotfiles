@@ -12,3 +12,19 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt.conceallevel = 0
 	end,
 })
+
+-- Disable the autoformatting for JavaScript and TypeScript -
+-- and use the eslint fix all instead
+vim.api.nvim_create_autocmd("BufRead", {
+	pattern = { "*.tsx", "*.ts", "*.jsx", "*.js" },
+	callback = function()
+		print("Setting autoformat to false")
+		vim.b.autoformat = false
+	end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = { "*.tsx", "*.ts", "*.jsx", "*.js" },
+	command = "silent! EslintFixAll",
+	group = vim.api.nvim_create_augroup("AutocmdsJavaScripFormatting", {}),
+})
