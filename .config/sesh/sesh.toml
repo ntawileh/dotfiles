@@ -19,8 +19,13 @@ name = "Home 🏡"
 path = "~"
 startup_command = "l"
 
+
+[[session]]
+name = "Downloads 📥"
+path = "~/Downloads"
+startup_command = "yazi"
+
 [[session]]
 name = "second brain 🧠"
 path = "~/Documents/notes"
 startup_command = "nvim +ObsidianToday"
-
