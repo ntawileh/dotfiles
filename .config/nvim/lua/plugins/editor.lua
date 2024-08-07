@@ -45,6 +45,7 @@ return {
 				-- Open file/folder in git repository
 				browse = "<Leader>go",
 			},
+			target_branch = "main",
 		},
 	},
 

@@ -1,4 +1,6 @@
 local vault_path = vim.fn.expand("~") .. "/Documents/notes"
+local inbox_dir = "0-Inbox"
+--
 return {
 	"epwalsh/obsidian.nvim",
 	version = "*", -- recommended, use latest release instead of latest commit
@@ -21,6 +23,20 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 	},
 
+	keys = {
+		{ "<leader>n", "", desc = "notes" },
+		{ "<leader>nd", ":ObsidianToday<cr>", desc = "obsidian [d]aily" },
+		{ "<leader>nt", ":ObsidianToday 1<cr>", desc = "obsidian [t]omorrow" },
+		{ "<leader>ny", ":ObsidianToday -1<cr>", desc = "obsidian [y]esterday" },
+		{ "<leader>nb", ":ObsidianBacklinks<cr>", desc = "obsidian [b]acklinks" },
+		{ "<leader>nl", ":ObsidianLink<cr>", desc = "obsidian [l]ink selection" },
+		{ "<leader>nf", ":ObsidianFollowLink<cr>", desc = "obsidian [f]ollow link" },
+		{ "<leader>nn", ":ObsidianNew<cr>", desc = "obsidian [n]ew" },
+		{ "<leader>ns", ":ObsidianSearch<cr>", desc = "obsidian [s]earch" },
+		{ "<leader>nO", ":ObsidianQuickSwitch<cr>", desc = "obsidian [O]pen quickswitch" },
+		{ "<leader>no", ":ObsidianOpen<cr>", desc = "obsidian [o]pen in app" },
+	},
+
 	cmd = {
 		"ObsidianOpen",
 		"ObsidianNew",
@@ -40,7 +56,7 @@ return {
 		completion = { nvim_cmp = true },
 
 		daily_notes = {
-			folder = "daily",
+			folder = "5-Daily",
 			template = "t_daily",
 			-- Optional, if you want to change the date format for the ID of daily notes.
 			-- date_format = "%Y-%m-%d",
@@ -67,7 +83,7 @@ return {
 
 		-- Optional, for templates (see below).
 		templates = {
-			subdir = "_assets/templates",
+			subdir = "meta/templates",
 			date_format = "%Y-%m-%d-%a",
 			time_format = "%H:%M",
 		},
@@ -116,6 +132,38 @@ return {
 				ObsidianHighlightText = { bg = "#75662e" },
 			},
 		},
+
+		new_notes_location = "notes_subdir",
+
+		-- Optional, customize how note IDs are generated given an optional title.
+		---@param title string|?
+		---@return string
+		note_id_func = function(title)
+			-- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
+			-- In this case a note with the title 'My new note' will be given an ID that looks
+			-- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
+			local suffix = ""
+			if title ~= nil then
+				-- If title is given, transform it into valid file name.
+				suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+			else
+				-- If title is nil, just add 4 random uppercase letters to the suffix.
+				for _ = 1, 4 do
+					suffix = suffix .. string.char(math.random(65, 90))
+				end
+			end
+			return tostring(os.time()) .. "-" .. suffix
+		end,
+
+		-- Optional, customize how note file names are generated given the ID, target directory, and title.
+		---@param spec { id: string, dir: obsidian.Path, title: string|? }
+		---@return string|obsidian.Path The full path to the new note.
+		note_path_func = function(spec)
+			-- This is equivalent to the default behavior.
+			local path = spec.dir / inbox_dir / tostring(spec.id)
+			-- local path = vault_path / inbox_dir / tostring(spec.id)
+			return path:with_suffix(".md")
+		end,
 	},
 
 	mappings = {
@@ -145,6 +193,7 @@ return {
 
 	config = function(_, opts)
 		require("obsidian").setup(opts)
+		vim.opt.conceallevel = 1
 		vim.keymap.set("n", "gd", function()
 			if require("obsidian").util.cursor_on_markdown_link() then
 				return "<cmd>ObsidianFollowLink<CR>"
