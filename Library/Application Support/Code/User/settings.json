@@ -80,6 +80,10 @@
       "commands": ["editor.action.showDefinitionPreviewHover"]
     },
     {
+      "before": ["K"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    },
+    {
       "before": ["g", "i"],
       "commands": ["editor.action.goToImplementation"]
     },
@@ -143,5 +147,11 @@
     "plaintext": false,
     "markdown": false,
     "scminput": false
-  }
+  },
+  "editor.cursorBlinking": "solid",
+  "editor.cursorStyle": "block",
+  "vim.cursorStylePerMode.insert": "line",
+  "vim.cursorStylePerMode.visual": "block-outline",
+  "vim.cursorStylePerMode.visualblock": "block-outline",
+  "vim.neovimUseConfigFile": true
 }

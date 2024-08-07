@@ -101,6 +101,15 @@ local config = {
 				k.multiple_actions(":w"),
 			})
 		),
+
+		k.cmd_key(
+			".",
+			act.Multiple({
+				act.SendKey({ key = "\x1b" }), -- escape
+				act.SendKey({ key = "\x20" }), -- escape
+				k.multiple_actions("ca"),
+			})
+		),
 	},
 }
 
