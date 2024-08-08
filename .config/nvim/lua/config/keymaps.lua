@@ -56,9 +56,9 @@ keymap.set("n", "<C-j>", function()
 	vim.diagnostic.goto_next()
 end, opts)
 
-keymap.set("n", "<leader>r", function()
-	require("ntawileh.hsl").replaceHexWithHSL()
-end)
+keymap.set("n", "<leader>rc", function()
+	require("ntawileh.hsl").cycleColor()
+end, { desc = "Cycle color formats (hex/hsl/rgb)" })
 
 keymap.set("n", "<leader>i", function()
 	require("ntawileh.lsp").hello()
