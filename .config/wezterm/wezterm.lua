@@ -31,11 +31,12 @@ local config = {
 
 	line_height = 1.1,
 	font = f.get_font({
-		"Monaspace Argon",
-		"Monaspace Krypton",
-		"Monaspace Neon",
-		"Monaspace Radon",
-		"Monaspace Xenon",
+		"CommitMono",
+		-- "Monaspace Argon",
+		-- "Monaspace Krypton",
+		-- "Monaspace Neon",
+		-- "Monaspace Radon",
+		-- "Monaspace Xenon",
 	}),
 	harfbuzz_features = { "calt", "dlig", "clig=1", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08" },
 
