@@ -15,6 +15,7 @@ set -g theme_display_ruby no
 
 
 alias vi="vim"
+alias n="nvim"
 alias p="pwd"
 alias filemanager='open . >/dev/null 2>&1'
 alias get_idf=". $HOME/esp/esp-idf/export.fish"
@@ -22,7 +23,7 @@ alias dot='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 
 # ls
-alias ls='lsd --group-dirs first' 
+alias ls='lsd --group-dirs first'
 alias l='lsd --blocks permission,links,user,size,date,name --date relative -l'
 alias la='ls -A'
 alias lla='l -a'
@@ -52,7 +53,9 @@ set -gx GOPATH $HOME/go
 set -gx GOBIN $GOPATH/bin
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"; end
+if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]
+    . "$HOME/google-cloud-sdk/path.fish.inc"
+end
 
 # fzf_configure_bindings --git_status=\cs --git_log=\cg --history=\cr --variables=\ce --processes=\cp --directory=\cf
 fzf_configure_bindings --git_status=\cs --git_log=\cg --variables=\ce --processes=\cp --directory=\cf
@@ -63,8 +66,8 @@ atuin init fish | source
 
 
 # pnpm
-set -gx PNPM_HOME "/Users/nadimtawileh/Library/pnpm"
+set -gx PNPM_HOME /Users/nadimtawileh/Library/pnpm
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
