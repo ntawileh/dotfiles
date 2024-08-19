@@ -15,6 +15,9 @@ keymap.set("n", "<Leader>D", '"_D')
 keymap.set("v", "<Leader>d", '"_d')
 keymap.set("v", "<Leader>D", '"_D')
 
+-- use jk to exit insert mode
+keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+
 -- Increment/decrement
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")

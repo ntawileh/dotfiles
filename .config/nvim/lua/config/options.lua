@@ -19,6 +19,7 @@ vim.opt.shell = "fish"
 vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
 vim.opt.inccommand = "split"
 vim.opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
+vim.opt.smartcase = true
 vim.opt.smarttab = true
 vim.opt.breakindent = true
 vim.opt.shiftwidth = 2
@@ -31,6 +32,13 @@ vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
 vim.opt.mouse = ""
+vim.opt.signcolumn = "yes"
+
+-- clipboard
+vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+
+-- turn off swapfile
+vim.opt.swapfile = false
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])

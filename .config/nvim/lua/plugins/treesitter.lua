@@ -3,9 +3,21 @@ return {
 
 	{
 		"nvim-treesitter/nvim-treesitter",
+		event = { "BufReadPre", "BufNewFile" },
+		build = ":TSUpdate",
+		dependencies = {
+			"windwp/nvim-ts-autotag",
+		},
 		opts = {
 			ensure_installed = {
 				"astro",
+				"json",
+				"tsx",
+				"yaml",
+				"html",
+				"css",
+				"prisma",
+				"dockerfile",
 				"javascript",
 				"typescript",
 				"cmake",

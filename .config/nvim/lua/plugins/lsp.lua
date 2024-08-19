@@ -10,6 +10,7 @@ return {
 				"luacheck",
 				"shellcheck",
 				"shfmt",
+				"black",
 				"tailwindcss-language-server",
 				"typescript-language-server",
 				"css-lsp",
