@@ -28,7 +28,7 @@ git:
   parseEmoji: true
   paging:
     colorArg: always
-    useConfig: true
+      #    useConfig: true
 
 customCommands:
   - key: "C"

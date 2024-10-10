@@ -12,6 +12,7 @@ set -g theme_display_sudo_user yes
 #set -g theme_powerline_fonts no
 set -g theme_nerd_fonts yes
 set -g theme_display_ruby no
+set -g BAT_THEME TwoDark
 
 
 alias vi="vim"

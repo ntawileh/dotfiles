@@ -153,5 +153,8 @@
   "vim.cursorStylePerMode.insert": "line",
   "vim.cursorStylePerMode.visual": "block-outline",
   "vim.cursorStylePerMode.visualblock": "block-outline",
-  "vim.neovimUseConfigFile": true
+  "vim.neovimUseConfigFile": true,
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
