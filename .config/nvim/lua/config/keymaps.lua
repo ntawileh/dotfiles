@@ -55,7 +55,7 @@ keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- Diagnostics
-keymap.set("n", "<C-j>", function()
+keymap.set("n", "<C-x>", function()
 	vim.diagnostic.goto_next()
 end, opts)
 
@@ -66,3 +66,7 @@ end, { desc = "Cycle color formats (hex/hsl/rgb)" })
 keymap.set("n", "<leader>i", function()
 	require("ntawileh.lsp").hello()
 end)
+
+keymap.set("n", "<leader>cL", function()
+	require("lint").try_lint()
+end, { desc = "Lint current file" })

@@ -7,11 +7,11 @@ return {
 				keymaps = {
 					accept_suggestion = "<Tab>",
 					clear_suggestion = "<C-]>",
-					accept_word = "<C-j>",
+					accept_word = "<C-x>",
 				},
 				ignore_filetypes = { cpp = true },
 				color = {
-					suggestion_color = "#424242",
+					suggestion_color = "#ee4212",
 					cterm = 244,
 				},
 

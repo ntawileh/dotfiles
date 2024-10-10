@@ -17,4 +17,13 @@ require("config.lazy")
 -- 	},
 -- })
 
-require("config/colors")
+require("config.colors")
+require("config.formatting")
+
+vim.diagnostic.config({
+	virtual_text = false,
+	float = {
+		border = "rounded",
+		source = "always",
+	},
+})
