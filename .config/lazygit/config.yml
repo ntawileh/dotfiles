@@ -27,7 +27,8 @@ gui:
 git:
   parseEmoji: true
   paging:
-    colorArg: always
+    colorArg:
+      always
       #    useConfig: true
 
 customCommands:
@@ -36,4 +37,10 @@ customCommands:
     description: "commit with commitizen"
     context: "files"
     loadingText: "opening commitizen commit tool"
+    subprocess: true
+  - key: "<c-C>"
+    command: "git --no-pager diff | mods 'write a commit message for this patch. also write the long commit message. use semantic commits. break the lines at 80 chars' >.git/gcai; git commit -a -F .git/gcai -e"
+    description: "commit with ai/mods"
+    context: "files"
+    loadingText: "launching ai mods tool"
     subprocess: true
