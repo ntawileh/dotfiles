@@ -20,7 +20,10 @@ alias n="nvim"
 alias p="pwd"
 alias filemanager='open . >/dev/null 2>&1'
 alias get_idf=". $HOME/esp/esp-idf/export.fish"
+
+# dotfiles
 alias dot='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias lazydot='lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 
 # ls
@@ -36,6 +39,10 @@ alias getip='curl -s https://ipinfo.io/json | jq'
 # Check Internet Speed
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 
+# git
+## mods
+alias gcai="git --no-pager diff | mods 'write a commit message for this patch. also write the long commit message. use semantic commits. break the lines at 80 chars' >.git/gcai; git commit -a -F .git/gcai -e"
+
 set -gx IDF_PATH $HOME/esp/esp-idf
 set -gx EDITOR vim
 set -gx PATH $PATH $HOME/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/local/opt/python@3/libexec/bin
@@ -44,7 +51,7 @@ set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -U FZF_DEFAULT_COMMAND "fd -H"
 set -gx FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --ansi --height=80% --preview-window=wrap --marker=" "'
 
-#set -Ux FZF_TMUX_OPTS -p 
+#set -Ux FZF_TMUX_OPTS -p
 
 set -gx fzf_history_opts "--border-label=command history" "--prompt= "
 set -gx fzf_directory_opts "--bind=ctrl-o:execute($EDITOR {} &> /dev/tty),alt-o:execute(open {} &> /dev/tty),ctrl-space:execute(qlmanage -p {} &> /dev/tty)"
@@ -72,3 +79,4 @@ if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+#
