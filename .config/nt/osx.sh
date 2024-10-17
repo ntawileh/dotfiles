@@ -215,11 +215,12 @@ echo "Configure Dock"
 defaults write com.apple.dock autohide -bool true # Autohide dock.
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock orientation -string "bottom"
-defaults write com.apple.dock tilesize -int 64          # Set dock icon size.
-defaults write com.apple.dock showhidden -bool true     # Set dock icon size.
-defaults write com.apple.dock mineffect -string "scale" # Set dock icon size.
-defaults write com.apple.dock magnification -bool true  # Enable dock magnification.
-defaults write com.apple.dock largesize -int 96         # Set dock magnificated icon size.
+defaults write com.apple.dock tilesize -int 64      # Set dock icon size.
+defaults write com.apple.dock showhidden -bool true # Set dock icon size.
+defaults write com.apple.dock mineffect -string "suck"
+defaults write com.apple.dock magnification -bool true # Enable dock magnification.
+defaults write com.apple.dock largesize -int 96        # Set dock magnificated icon size.
+defaults write com.apple.dock "expose-group-apps" -bool "true"
 
 echo "Kill affected applications"
 for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
