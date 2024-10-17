@@ -18,37 +18,215 @@ vicmd_symbol = "[](green)"
 show_milliseconds = false
 show_notifications = true
 min_time_to_notify = 45_000
+min_time = 500
 format = '[ ⏱  $duration]($style)'
 style = "yellow"
-
-[aws]
-symbol = "  "
-disabled = true
-
-[buf]
-symbol = " "
-
-[conda]
-symbol = " "
-
-[dart]
-symbol = " "
 
 [directory]
 read_only = " "
 truncation_symbol = "…/"
 style = "bold lavender"
 
+[hg_branch]
+symbol = " "
+
+[git_commit]
+disabled = false
+
+[git_branch]
+disabled = false
+symbol = " "
+format = "[\\[$symbol$branch\\]]($style) "
+style = "fg:#bf5700"
+#ignore_branches = ["master", "main"]
+
+[git_state]
+disabled = false
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = "[🍒 PICKING](bold red)"
+
+[git_status]
+disabled = false
+up_to_date = "✓ "
+deleted = "x"
+staged = '[++\($count\)](green)'
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+style = "fg:#bf5700"
+
+# trigger tmux reload when using gitmux
+# in tmux status bar
+[custom.tmux]
+command = 'tmux refresh-client -S >/dev/null 2>&1 &'
+detect_folders = ['.git']
+disabled = true
+
+[aws]
+symbol = "  "
+disabled = true
+
+[azure]
+disabled = true
+
+[buf]
+disabled = true
+symbol = " "
+
+[bun]
+disabled = true
+
+[c]
+disabled = true
+
+[cmake]
+disabled = true
+
+[conda]
+disabled = true
+symbol = " "
+
+[container]
+disabled = true
+
+[crystal]
+disabled = true
+
+[daml]
+disabled = true
+
+[dart]
+disabled = true
+symbol = " "
+
+[deno]
+disabled = true
+
+[docker_context]
+symbol = " "
+disabled = true
+
+[dotnet]
+disabled = true
+
+[elixir]
+symbol = " "
+disabled = true
+
+[elm]
+symbol = " "
+disabled = true
+
+[env_var]
+disabled = true
+
+[erlang]
+disabled = true
+
+[fennel]
+disabled = true
+
 [gcloud]
 disabled = true
 
+[golang]
+symbol = " "
+disabled = true
+
+[gradle]
+disabled = true
+
+[guix_shell]
+disabled = true
+
+[haskell]
+symbol = " "
+disabled = true
+
+[haxe]
+disabled = true
+
+[helm]
+disabled = true
+
+[hostname]
+disabled = true
 
 [java]
 symbol = " "
 disabled = true
 
+[jobs]
+disabled = true
+
+[julia]
+symbol = " "
+disabled = true
+
+[kotlin]
+disabled = true
+
 [kubernetes]
 disabled = true
+
+[lua]
+disabled = true
+
+[nim]
+symbol = " "
+disabled = true
+
+[nix_shell]
+symbol = " "
+disabled = true
+
+[nodejs]
+disabled = true
+#symbol = ""
+symbol = "🤖 "
+format = "[\\[$symbol($version)\\]]($style)"
+style = "green"
+
+[ocaml]
+disabled = true
+
+[openstack]
+disabled = true
+
+[package]
+symbol = " "
+disabled = true
+
+[perl]
+disabled = true
+symbol = " "
+
+[php]
+disabled = true
+
+[purescript]
+disabled = true
+
+[python]
+disabled = true
+python_binary = 'python3'
+
+[ruby]
+disabled = true
+
+[rust]
+disabled = true
+symbol = " "
+
+[scala]
+disabled = true
+
+[shlvl]
+disabled = true
+
+[singularity]
+disabled = true
+
 
 [status]
 style = "red"
@@ -58,94 +236,23 @@ success_symbol = ""
 format = '[$symbol$common_meaning$signal_name$maybe_int]($style) '
 disabled = true
 
-
-[docker_context]
-symbol = " "
+[swift]
 disabled = true
+symbol = " "
 
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
-[git_commit]
+[terraform]
 disabled = true
-
-[git_branch]
-disabled = true
-symbol = " "
-format = "[\\[$symbol$branch\\]]($style) "
-style = "fg:#bf5700"
-#ignore_branches = ["master", "main"]
-
-[git_state]
-disabled = true
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
-cherry_pick = "[🍒 PICKING](bold red)"
-
-[git_status]
-disabled = true
-up_to_date = "✓ "
-deleted = "x"
-staged = '[++\($count\)](green)'
-ahead = "⇡${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-behind = "⇣${count}"
-style = "fg:#bf5700"
-
-[golang]
-symbol = " "
-
-[haskell]
-symbol = " "
-
-[hg_branch]
-symbol = " "
-
-[julia]
-symbol = " "
-
-[memory_usage]
-symbol = " "
-
-[nim]
-symbol = " "
-
-[nix_shell]
-symbol = " "
-
-[nodejs]
-disabled = true
-#symbol = ""
-symbol = "🤖 "
-format = "[\\[$symbol($version)\\]]($style)"
-style = "green"
-
-[package]
-symbol = " "
-disabled = true
+symbol = " "
 
 [username]
 disabled = true
 
-[rust]
-disabled = true
-symbol = " "
-
-[custom.tmux]
-command = 'tmux refresh-client -S >/dev/null 2>&1'
-detect_folders = ['.git']
-
-[python]
-
-python_binary = 'python3'
-
-[hostname]
-disabled = true
-
 [vagrant]
 disabled = true
+
+[zig]
+disabled = true
+
 
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
