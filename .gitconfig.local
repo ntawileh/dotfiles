@@ -1,8 +1,10 @@
-[user]                                                                                                      
-	name = Nadim Tawileh
-	email = nadim@tawileh.com
+[user]
+  name = Nadim Tawileh
+  email = 5069918+ntawileh@users.noreply.github.com
 [init]
-	defaultBranch = main
+  defaultBranch = main
+[commit]
+  gpgsign = true
 
 [includeIf "gitdir:~/docufi/"]
     path = ~/docufi/.gitconfig
