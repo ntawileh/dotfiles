@@ -44,7 +44,7 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 alias gcai="git --no-pager diff | mods 'write a commit message for this patch. also write the long commit message. use semantic commits. break the lines at 80 chars' >.git/gcai; git commit -a -F .git/gcai -e"
 
 set -gx IDF_PATH $HOME/esp/esp-idf
-set -gx EDITOR vim
+set -gx EDITOR nvim
 set -gx PATH $PATH $HOME/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/local/opt/python@3/libexec/bin
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 
