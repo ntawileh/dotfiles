@@ -28,7 +28,7 @@ alias lazydot='lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # ls
 alias ls='lsd --group-dirs first'
-alias l='lsd --blocks permission,links,user,size,date,name --date relative -l'
+alias l='lsd --blocks permission,links,size,date,name --date relative -l'
 alias la='ls -A'
 alias lla='l -a'
 alias lt='ls --tree'
