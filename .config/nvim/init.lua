@@ -1,9 +1,9 @@
 if vim.loader then
-	vim.loader.enable()
+    vim.loader.enable()
 end
 
 _G.dd = function(...)
-	require("util.debug").dump(...)
+    require("util.debug").dump(...)
 end
 vim.print = _G.dd
 
@@ -17,13 +17,14 @@ require("config.lazy")
 -- 	},
 -- })
 
-require("config.colors")
-require("config.formatting")
+require("ntawileh.colors")
+require("ntawileh.formatting")
+require("ntawileh.supermaven").register_ai_keymaps()
 
 vim.diagnostic.config({
-	virtual_text = false,
-	float = {
-		border = "rounded",
-		source = "always",
-	},
+    virtual_text = false,
+    float = {
+        border = "rounded",
+        source = "always",
+    },
 })
