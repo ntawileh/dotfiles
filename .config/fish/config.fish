@@ -1,18 +1,6 @@
 fish_vi_key_bindings
-set -g theme_display_vi yes
-set -g theme_show_exit_status yes
-set -g theme_display_date no
-set -g theme_display_nvm no
-set -g theme_color_scheme dracula
-#set -g theme_display_k8s_context yes
-set -g theme_display_git_master_branch no
-set -g theme_display_user ssh
-set -g theme_display_hostname ssh
-set -g theme_display_sudo_user yes
-#set -g theme_powerline_fonts no
-set -g theme_nerd_fonts yes
-set -g theme_display_ruby no
 set -g BAT_THEME TwoDark
+fish_config theme choose catppuccin-mocha
 
 
 alias vi="vim"
@@ -49,7 +37,12 @@ set -gx PATH $PATH $HOME/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/l
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 set -U FZF_DEFAULT_COMMAND "fd -H"
-set -gx FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --ansi --height=80% --preview-window=wrap --marker=" "'
+set -gx FZF_DEFAULT_OPTS "\
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=selected-bg:#45475a \
+--cycle --layout=reverse --border --ansi --height=80% --preview-window=wrap --marker=' '"
 
 #set -Ux FZF_TMUX_OPTS -p
 
