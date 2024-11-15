@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+tmux ls &>/dev/null
+TMUX_STATUS=$?
+
+STATUS=$(~/bin/pom | head -1)
+OPTIONS="start\npause\nstop\nbreak\nlong_break"
+
+if [ $TMUX_STATUS -eq 0 ]; then # tmux is running
+    ~/bin/pom $(
+        printf ${OPTIONS} | fzf-tmux -p 25%,40% \
+            --no-sort --border-label ' 🍅 pomodoro timer ' --prompt '> ' \
+            --header " ${STATUS} " --header-first --no-scrollbar \
+            --bind 'tab:down,btab:up'
+    )
+    tmux refresh-client -S >/dev/null 2>&1 &
+else # tmux is not running
+    echo "tmux is not running"
+fi
