@@ -14,7 +14,7 @@ readonly BREAK=300 # 5 min
 # long break duration
 readonly LONG_BREAK=1200 # 20 min
 # script to run (file path)
-SCRIPT=""
+SCRIPT="/usr/local/bin/tmux refresh-client -S >/dev/null 2>&1 &"
 
 # SCRIPT file example
 ##!/bin/bash
@@ -25,10 +25,10 @@ SCRIPT=""
 #esac
 
 # icons
-readonly TOMATO_ICON="🍅"
-readonly BREAK_ICON="☕"
-readonly LONG_BREAK_ICON="🎉"
-readonly PAUSE_BIG_ICON="▮▮"
+readonly TOMATO_ICON="󱎫"
+readonly BREAK_ICON=""
+readonly LONG_BREAK_ICON="󱁖"
+readonly PAUSE_BIG_ICON="󰏥"
 readonly PAUSE_ICON="⏸"
 readonly STOP_ICON="⏹"
 readonly CHECKED_ICON="✓"
