@@ -37,6 +37,7 @@ local config = {
         -- "Monaspace Argon",
         -- "Monaspace Krypton",
         "Monaspace Neon",
+		 -- "FiraCode Nerd Font Mono",
         -- "Monaspace Radon",
         -- "Monaspace Xenon",
     }),
