@@ -53,13 +53,13 @@ return {
         end,
     },
 
-    {
-        "rcarriga/nvim-notify",
-        opts = {
-            timeout = 5000,
-            render = "wrapped-compact",
-        },
-    },
+    -- {
+    --     "rcarriga/nvim-notify",
+    --     opts = {
+    --         timeout = 5000,
+    --         render = "wrapped-compact",
+    --     },
+    -- },
 
     -- animations
     {
@@ -134,23 +134,83 @@ return {
         },
         keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
     },
-
     {
-        "nvimdev/dashboard-nvim",
-        event = "VimEnter",
-        -- config = function() end,
-        opts = function(_, opts)
-            local logo = [[
-      ██╗  ██╗██╗    ███╗   ██╗ █████╗ ██████╗ ██╗███╗   ███╗
-      ██║  ██║██║    ████╗  ██║██╔══██╗██╔══██╗██║████╗ ████║
-      ███████║██║    ██╔██╗ ██║███████║██║  ██║██║██╔████╔██║
-      ██╔══██║██║    ██║╚██╗██║██╔══██║██║  ██║██║██║╚██╔╝██║
-      ██║  ██║██║    ██║ ╚████║██║  ██║██████╔╝██║██║ ╚═╝ ██║
-      ╚═╝  ╚═╝╚═╝    ╚═╝  ╚═══╝╚═╝  ╚═╝╚═════╝ ╚═╝╚═╝     ╚═╝
-      ]]
+        "folke/snacks.nvim",
+        opts = {
+            notifier = {
+                enabled = true,
+            },
+            dashboard = {
+                sections = {
 
-            logo = string.rep("\n", 8) .. logo .. "\n\n"
-            opts.config.header = vim.split(logo, "\n")
-        end,
+                    { section = "header" },
+                    {
+                        pane = 2,
+                        section = "terminal",
+                        cmd = "~/.config/nt/color/shell-color-scripts/colorscript.sh -e six",
+                        height = 10,
+                        padding = 1,
+                    },
+                    { section = "keys", gap = 1, padding = 1 },
+                    {
+                        pane = 2,
+                        icon = " ",
+                        title = "Recent Files",
+                        section = "recent_files",
+                        indent = 2,
+                        padding = 1,
+                    },
+                    { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+                    {
+                        pane = 2,
+                        icon = " ",
+                        title = "Git Status",
+                        section = "terminal",
+                        enabled = vim.fn.isdirectory(".git") == 1,
+                        cmd = "git status --short --branch --renames",
+                        height = 5,
+                        padding = 1,
+                        ttl = 5 * 60,
+                        indent = 3,
+                    },
+                    { section = "startup" },
+                },
+                preset = {
+                    header = [[
+     .-') _    ('-.     _ .-') _           _   .-')
+    ( OO ) )  ( OO ).-.( (  OO) )         ( '.( OO )_
+,--./ ,--,'   / . --. / \     .'_   ,-.-') ,--.   ,--.)
+|   \ |  |\   | \-.  \  ,`'--..._)  |  |OO)|   `.'   |
+|    \|  | ).-'-'  |  | |  |  \  '  |  |  \|         |
+|  .     |/  \| |_.'  | |  |   ' |  |  |(_/|  |'.'|  |
+|  |\    |    |  .-.  | |  |   / : ,|  |_.'|  |   |  |
+|  | \   |    |  | |  | |  '--'  /(_|  |   |  |   |  |
+`--'  `--'    `--' `--' `-------'   `--'   `--'   `--'
+ ]],
+        -- stylua: ignore
+        ---@type snacks.dashboard.Item[]
+        keys = {
+          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+          { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+          { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+          { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+          { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
+          { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+          { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
+          { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
+          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+        },
+                },
+            },
+        },
     },
+
+    --   ██╗  ██╗██╗    ███╗   ██╗ █████╗ ██████╗ ██╗███╗   ███╗
+    --   ██║  ██║██║    ████╗  ██║██╔══██╗██╔══██╗██║████╗ ████║
+    --   ███████║██║    ██╔██╗ ██║███████║██║  ██║██║██╔████╔██║
+    --   ██╔══██║██║    ██║╚██╗██║██╔══██║██║  ██║██║██║╚██╔╝██║
+    --   ██║  ██║██║    ██║ ╚████║██║  ██║██████╔╝██║██║ ╚═╝ ██║
+    --   ╚═╝  ╚═╝╚═╝    ╚═╝  ╚═══╝╚═╝  ╚═╝╚═════╝ ╚═╝╚═╝     ╚═╝
+    --
+    --
 }

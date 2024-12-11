@@ -56,17 +56,31 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- Diagnostics
 keymap.set("n", "<C-x>", function()
-  vim.diagnostic.goto_next()
+    vim.diagnostic.goto_next()
 end, opts)
 
 keymap.set("n", "<leader>rc", function()
-  require("ntawileh.hsl").cycleColor()
+    require("ntawileh.hsl").cycleColor()
 end, { desc = "Cycle color formats (hex/hsl/rgb)" })
 
 keymap.set("n", "<leader>i", function()
-  require("ntawileh.lsp").hello()
+    require("ntawileh.lsp").hello()
 end)
 
 keymap.set("n", "<leader>cL", function()
-  require("lint").try_lint()
+    require("lint").try_lint()
 end, { desc = "Lint current file" })
+
+-- Snacks.toggle({
+--     name = "Indention Guides",
+--     get = function()
+--         return Snacks.indent.enabled
+--     end,
+--     set = function(state)
+--         if state then
+--             Snacks.indent.enable()
+--         else
+--             Snacks.indent.disable()
+--         end
+--     end,
+-- }):map("<leader>ug")

@@ -3,7 +3,10 @@ if vim.loader then
 end
 
 _G.dd = function(...)
-    require("util.debug").dump(...)
+    Snacks.debug.inspect(...)
+end
+_G.bt = function()
+    Snacks.debug.backtrace()
 end
 vim.print = _G.dd
 
