@@ -19,7 +19,8 @@ return {
         -- Required.
         "nvim-lua/plenary.nvim",
         "hrsh7th/nvim-cmp",
-        "nvim-telescope/telescope.nvim",
+        -- "nvim-telescope/telescope.nvim",
+        "ibhagwan/fzf-lua",
         "nvim-treesitter/nvim-treesitter",
     },
 
@@ -53,7 +54,7 @@ return {
 
     opts = {
         dir = vault_path, -- no need to call 'vim.fn.expand' here
-        completion = { nvim_cmp = true },
+        completion = { nvim_cmp = false },
 
         daily_notes = {
             folder = "5-Daily",
@@ -164,6 +165,10 @@ return {
             -- local path = vault_path / inbox_dir / tostring(spec.id)
             return path:with_suffix(".md")
         end,
+
+        picker = {
+            name = "fzf-lua",
+        },
     },
 
     mappings = {

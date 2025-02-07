@@ -61,17 +61,6 @@ return {
     --     },
     -- },
 
-    -- animations
-    {
-        "echasnovski/mini.animate",
-        event = "VeryLazy",
-        opts = function(_, opts)
-            opts.scroll = {
-                enable = false,
-            }
-        end,
-    },
-
     -- buffer line
     {
         "akinsho/bufferline.nvim",
@@ -201,6 +190,15 @@ return {
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
                 },
+            },
+        },
+        keys = {
+            {
+                "<leader><space>",
+                function()
+                    Snacks.picker.smart()
+                end,
+                desc = "Smart Find Files",
             },
         },
     },

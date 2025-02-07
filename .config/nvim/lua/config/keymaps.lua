@@ -70,17 +70,3 @@ end)
 keymap.set("n", "<leader>cL", function()
     require("lint").try_lint()
 end, { desc = "Lint current file" })
-
--- Snacks.toggle({
---     name = "Indention Guides",
---     get = function()
---         return Snacks.indent.enabled
---     end,
---     set = function(state)
---         if state then
---             Snacks.indent.enable()
---         else
---             Snacks.indent.disable()
---         end
---     end,
--- }):map("<leader>ug")
