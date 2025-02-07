@@ -4,7 +4,7 @@ palette = "catppuccin_macchiato"
 
 scan_timeout = 10
 
-add_newline = true
+add_newline = false
 right_format = """$cmd_duration"""
 
 [line_break]
@@ -57,10 +57,10 @@ style = "fg:#fab387"
 
 # trigger tmux reload when using gitmux
 # in tmux status bar
-[custom.tmux]
-command = 'tmux refresh-client -S >/dev/null 2>&1 &'
-detect_folders = ['.git']
-disabled = true
+#[custom.tmux]
+#command = 'tmux refresh-client -S >/dev/null 2>&1 &'
+#detect_folders = ['.git']
+#disabled = true
 
 [aws]
 symbol = "  "
@@ -115,9 +115,6 @@ disabled = true
 
 [elm]
 symbol = " "
-disabled = true
-
-[env_var]
 disabled = true
 
 [erlang]
