@@ -28,7 +28,7 @@ local config = {
 
     default_prog = { "/usr/local/bin/fish", "-l" },
 
-    font_size = 20,
+    font_size = 16,
 
     line_height = 1.1,
     font = f.get_font({
@@ -37,7 +37,7 @@ local config = {
         -- "Monaspace Argon",
         -- "Monaspace Krypton",
         "Monaspace Neon",
-		 -- "FiraCode Nerd Font Mono",
+        -- "FiraCode Nerd Font Mono",
         -- "Monaspace Radon",
         -- "Monaspace Xenon",
     }),
