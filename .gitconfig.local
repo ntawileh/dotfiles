@@ -8,3 +8,6 @@
 
 [includeIf "gitdir:~/docufi/"]
     path = ~/docufi/.gitconfig
+
+#[includeIf "gitdir:~/Documents/notes/"]
+#    path = ~/Documents/notes/.gitconfig
