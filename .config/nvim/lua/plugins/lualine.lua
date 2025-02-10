@@ -50,6 +50,20 @@ return {
             },
         }
 
+        ---get attached lsp clients
+        ---@return string
+        local function attached_lsp_clients()
+            local clients = {}
+            for _, client in pairs(vim.lsp.buf_get_clients()) do
+                table.insert(clients, client.name)
+            end
+            if #clients == 0 then
+                return ""
+            else
+                return "󱉶 " .. table.concat(clients, ",")
+            end
+        end
+
         ---check if we are recording and return status
         ---@return string
         local function recording()
@@ -78,6 +92,7 @@ return {
                     { "encoding" },
                     { "fileformat" },
                     { "filetype" },
+                    { attached_lsp_clients },
                 },
             },
         })
