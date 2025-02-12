@@ -2,24 +2,43 @@ return {
 
     {
         "supermaven-inc/supermaven-nvim",
-        config = function()
-            require("supermaven-nvim").setup({
-                keymaps = {
-                    accept_suggestion = "<Tab>",
-                    clear_suggestion = "<C-]>",
-                    accept_word = "<C-x>",
+        opts = {
+            color = {
+                suggestion_color = "#888888",
+                cterm = 244,
+            },
+        },
+        -- "supermaven-inc/supermaven-nvim",
+        -- config = function()
+        --     require("supermaven-nvim").setup({
+        --
+        --         keymaps = {
+        --             accept_suggestion = "<Tab>",
+        --             clear_suggestion = "<C-]>",
+        --             accept_word = "<C-x>",
+        --         },
+        --         ignore_filetypes = { cpp = true },
+        --         color = {
+        --             suggestion_color = "#ee4212",
+        --             cterm = 244,
+        --         },
+        --
+        --         log_level = "warn", -- set to "off" to disable logging completely
+        --         disable_inline_completion = false, -- disables inline completion for use with cmp
+        --         disable_keymaps = false, -- disables built in keymaps for more manual control
+        --     })
+        -- end,
+    },
+    {
+        "saghen/blink.cmp",
+        config = {
+            completion = {
+                list = { selection = { preselect = false, auto_insert = false } },
+                ghost_text = {
+                    show_with_selection = false,
                 },
-                ignore_filetypes = { cpp = true },
-                color = {
-                    suggestion_color = "#ee4212",
-                    cterm = 244,
-                },
-
-                log_level = "warn", -- set to "off" to disable logging completely
-                disable_inline_completion = false, -- disables inline completion for use with cmp
-                disable_keymaps = false, -- disables built in keymaps for more manual control
-            })
-        end,
+            },
+        },
     },
     -- Create annotations with one keybind, and jump your cursor in the inserted annotation
     {
