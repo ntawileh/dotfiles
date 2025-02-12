@@ -1,0 +1,9 @@
+{
+    "task": {
+        "prefix": "task",
+        "body": [
+            "- [ ]  #todo [due::${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}] ${1:task}",
+            ""
+        ]
+    }
+}
