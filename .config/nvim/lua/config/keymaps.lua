@@ -22,9 +22,6 @@ keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
--- Select all
-keymap.set("n", "<C-a>", "gg<S-v>G")
-
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 
@@ -55,9 +52,9 @@ keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- Diagnostics
-keymap.set("n", "<C-x>", function()
-    vim.diagnostic.goto_next()
-end, opts)
+-- keymap.set("n", "<C-x>", function()
+--     vim.diagnostic.goto_next()
+-- end, opts)
 
 keymap.set("n", "<leader>rc", function()
     require("ntawileh.hsl").cycleColor()

@@ -28,3 +28,15 @@ vim.keymap.set("n", "<leader>op", toggle_checkbox, {
     desc = "Toggle checkbox",
     buffer = 0,
 })
+
+vim.keymap.set(
+    "n",
+    "<leader>rd",
+    require("ntawileh.dates").bumpDate,
+    { noremap = true, silent = true, desc = "Bump date" }
+)
+
+local path = vim.fn.expand("%:p")
+if path:match("Documents/notes/") then
+    require("supermaven-nvim.completion_preview").disable_inline_completion = true
+end
