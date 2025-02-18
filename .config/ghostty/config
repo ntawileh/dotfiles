@@ -1,0 +1,123 @@
+# vim: set filetype=dosini
+#
+#  ██████╗ ██╗  ██╗ ██████╗ ███████╗████████╗████████╗██╗   ██╗
+# ██╔════╝ ██║  ██║██╔═══██╗██╔════╝╚══██╔══╝╚══██╔══╝╚██╗ ██╔╝
+# ██║  ███╗███████║██║   ██║███████╗   ██║      ██║    ╚████╔╝
+# ██║   ██║██╔══██║██║   ██║╚════██║   ██║      ██║     ╚██╔╝
+# ╚██████╔╝██║  ██║╚██████╔╝███████║   ██║      ██║      ██║
+#  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝      ╚═╝      ╚═╝
+#
+# Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
+# https://ghostty.org/docs/config/reference
+
+# BUG: Improper handling of window title sequences can lead to arbitrary command execution
+# https://github.com/ghostty-org/ghostty/security/advisories/GHSA-5hcq-3j4q-4v6p
+title = Ghostty
+
+###########
+## shell ##
+###########
+command = "/usr/local/bin/fish --login"
+initial-command = "/usr/local/bin/fish --login -c 't'"
+shell-integration = fish
+shell-integration-features = "no-cursor,sudo,title"
+
+#################
+## UI / window ##
+#################
+bold-is-bright = true
+macos-titlebar-style = hidden
+macos-window-shadow = false
+mouse-hide-while-typing = true
+window-decoration = false
+window-padding-balance = true
+window-padding-x = 2
+window-padding-y = 4
+window-save-state = always
+window-theme = auto
+# maximise by default
+window-width = 9999
+window-height = 9999
+
+
+# visuals
+font-family = "Monaspace Neon Var Regular Bold"
+# fallback (not needed?)
+# font-family = "Symbols Nerd Font Mono"
+font-size = 20
+macos-window-shadow = false
+mouse-hide-while-typing = true
+theme = light:catppuccin-latte,dark:catppuccin-mocha
+window-decoration = false
+window-padding-x = 16
+window-padding-y = 10
+
+###############
+## clipboard ##
+###############
+clipboard-read = "allow"
+clipboard-trim-trailing-spaces = true
+clipboard-write = "allow"
+
+#################
+## keybindings ##
+#################
+# Some useful encoded characters:
+# \x0a = Enter/Return
+# \x1b = Esc
+# \x01 = <C-a> (tmux prefix)
+macos-option-as-alt = true
+
+# switch to window by index (1-based)
+keybind = super+physical:one=text:\x011
+keybind = super+physical:two=text:\x012
+keybind = super+physical:three=text:\x013
+keybind = super+physical:four=text:\x014
+keybind = super+physical:five=text:\x015
+keybind = super+physical:six=text:\x016
+keybind = super+physical:seven=text:\x017
+keybind = super+physical:eight=text:\x018
+keybind = super+physical:nine=text:\x019
+
+# nav
+keybind = super+[=text:\x01j
+keybind = super+]=text:\x01k
+
+
+# Change to tmux copy mode
+keybind = super+c=text:\x01[
+
+keybind = super+d=text:\x01D
+# keybind = super+e=
+# :Grep (find)
+keybind = super+f=text:\x3a\x47\x72\x65\x70\x0a
+# <perfix>+g (open lazygit window)
+keybind = super+g=text:\x01\x67
+# hide?
+# keybind = super+h=
+# keybind = super+i=
+# <perfix>+k
+keybind = super+k=text:\x01\x73
+# <perfix>+j (open sesh picker)
+keybind = super+j=text:\x01\x54
+# <prefix>+l (switch to last session)
+keybind = super+l=text:\x01\x4c
+# <prefix>+n (new vertical pane)
+keybind = super+n=text:\x01\x7c
+# <prefix>+u (open url)
+keybind = super+u=text:\x01\x75
+# Pomodoro
+keybind = super+p=text:\x01\x50
+# :qa!
+keybind = super+q=text:\x3a\x1b\x1b\x3a\x71\x61\x21\x0a
+# :w (write buffer)
+keybind = super+r=reload_config
+keybind = super+s=text:\x3a\x77\x0a
+# <prefix>+c (new window)
+keybind = super+t=text:\x01\x63
+keybind = super+w=text:\x01\x78
+# nvim save (Esc :w Enter)
+keybind = super+.=text:\x20\x3a\x77\x0d
+# nvim code actions
+keybind = super+.=text:\x20\x63\x61
+
