@@ -129,6 +129,7 @@ return {
             notifier = {
                 enabled = true,
             },
+            image = {},
             dashboard = {
                 sections = {
 
