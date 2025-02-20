@@ -8,12 +8,18 @@ OPTIONS="start\npause\nstop\nbreak\nlong_break"
 
 if [ $TMUX_STATUS -eq 0 ]; then # tmux is running
     ~/bin/pom $(
-        printf ${OPTIONS} | fzf-tmux -p 25%,40% \
+        printf ${OPTIONS} | fzf-tmux -p 45%,70% \
             --no-sort --border-label ' 🍅 pomodoro timer ' --prompt '> ' \
             --header " ${STATUS} " --header-first --no-scrollbar \
-            --bind 'tab:down,btab:up'
+            --bind 'tab:down,btab:up' \
+            --preview '~/bin/pom  | sed -n "3p" | cut -d"|" -f1 | figlet -f starwars -w 70' \
+            --preview-window 'down:75%:nowrap' \
+            --color 'fg:#bbccdd,fg+:#ddeeff,bg:#334455,preview-bg:#223344,border:#778899'
+
     )
     tmux refresh-client -S >/dev/null 2>&1 &
 else # tmux is not running
     echo "tmux is not running"
 fi
+
+# ~/bin/pom | head -1
