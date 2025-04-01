@@ -31,7 +31,7 @@ vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
-vim.opt.mouse = ""
+vim.opt.mouse = "a"
 vim.opt.signcolumn = "yes"
 
 -- clipboard
@@ -53,6 +53,9 @@ vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 vim.g.ai_cmp = false
+
+-- avoid Biome conflicts with Prettier.
+vim.g.lazyvim_prettier_needs_config = true
 
 if vim.fn.has("nvim-0.8") == 1 then
     vim.opt.cmdheight = 0
