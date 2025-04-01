@@ -52,6 +52,7 @@ set -gx fzf_preview_dir_cmd 'lsd --color always --blocks permission,links,user,s
 
 set -gx GOPATH $HOME/go
 set -gx GOBIN $GOPATH/bin
+set -gx PATH $PATH $GOBIN
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]
