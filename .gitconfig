@@ -1,5 +1,5 @@
 [alias]
-	l = log --pretty=oneline -n 50 --graph --abbrev-commit
+	l = log --pretty=oneline -n 50 --graph --abbrev-commit --decorate --parents
 	save = !git add -A && git commit -v -m 'SAVEPOINT'
 	undo = reset HEAD~1 --mixed
 	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' --no-verify && git reset HEAD~1 --hard
