@@ -4,13 +4,14 @@ tmux ls &>/dev/null
 TMUX_STATUS=$?
 
 STATUS=$(~/bin/pom | head -1)
+NOW=$(date +%H:%M)
 OPTIONS="start\npause\nstop\nbreak\nlong_break"
 
 if [ $TMUX_STATUS -eq 0 ]; then # tmux is running
     ~/bin/pom $(
         printf ${OPTIONS} | fzf-tmux -p 45%,70% \
             --no-sort --border-label ' 🍅 pomodoro timer ' --prompt '> ' \
-            --header " ${STATUS} " --header-first --no-scrollbar \
+            --header " ${STATUS} - Time now is ${NOW} " --header-first --no-scrollbar \
             --bind 'tab:down,btab:up' \
             --preview '~/bin/pom  | sed -n "3p" | cut -d"|" -f1 | figlet -f starwars -w 70' \
             --preview-window 'down:75%:nowrap' \
