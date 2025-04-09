@@ -1,13 +1,15 @@
 [alias]
-	l = log --pretty=oneline -n 50 --graph --abbrev-commit --decorate --parents
-	save = !git add -A && git commit -v -m 'SAVEPOINT'
-	undo = reset HEAD~1 --mixed
-	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' --no-verify && git reset HEAD~1 --hard
-	findcommit = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
-	findmessage = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+    l = log --pretty=oneline -n 50 --graph --abbrev-commit --decorate --parents
+    bl = blame -C -C -C
+    save = !git add -A && git commit -v -m 'SAVEPOINT'
+    undo = reset HEAD~1 --mixed
+    wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' --no-verify && git reset HEAD~1 --hard
+    findcommit = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+    findmessage = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+    wdiff = diff --word-diff
 [core]
-	editor = nvim
-	pager = delta
+    editor = nvim
+    pager = delta
     excludesfile = ~/.gitignore_global
 [interactive]
     diffFilter = delta --color-only
@@ -16,31 +18,36 @@
     side-by-side = true
 [diff]
     colorMoved = default
+[merge]
+    conflictstyle = zdiff3
 [push]
-	default = current
+    default = current
 [branch]
-	autosetupmerge = true
+    autosetupmerge = true
 [advice]
-	detachedHead = false
+    detachedHead = false
 [color]
-	ui = true
+    ui = true
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 [color "diff"]
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
 [fetch]
-	prune = true
+    prune = true
 [include]
-	path = .gitconfig.local
+    path = .gitconfig.local
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [pull]
-	rebase = true
+    rebase = true
 [rerere]
-	enabled = true
+    enabled = true
+[grep]
+    lineNumber = true
+    patternType = perl
