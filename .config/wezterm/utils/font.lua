@@ -6,7 +6,7 @@ M.get_font = function(fonts)
     local family = h.get_random_entry(fonts)
     return wezterm.font_with_fallback({
         --{ family = family, weight = "Bold" },
-        { family = family, weight = "Regular" },
+        { family = family, weight = "Bold", style = "Italic" },
         { family = "Symbols Nerd Font Mono" },
     })
 end
