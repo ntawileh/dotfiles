@@ -41,7 +41,8 @@ window-height = 9999
 
 
 # visuals
-font-family = "Monaspace Neon Var ExtraLight Regular"
+font-family = "Maple Mono"
+font-family = "Symbols Nerd Font Mono"
 # font-family-bold = "Monaspace Neon Var ExtraLight Bold"
 # font-family-italic = "Monaspace Neon Var ExtraLight Italic"
 # font-family-bold-italic = "Monaspace Neon Var ExtraLight Bold Italic"
