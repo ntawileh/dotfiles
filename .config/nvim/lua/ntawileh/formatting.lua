@@ -5,6 +5,9 @@ conform.setup({
         biome = {
             require_cwd = true,
         },
+        prettier = {
+            require_cwd = true,
+        },
     },
     formatters_by_ft = {
         javascript = { "prettier", "biome" },

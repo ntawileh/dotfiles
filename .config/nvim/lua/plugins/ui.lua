@@ -53,14 +53,6 @@ return {
         end,
     },
 
-    -- {
-    --     "rcarriga/nvim-notify",
-    --     opts = {
-    --         timeout = 5000,
-    --         render = "wrapped-compact",
-    --     },
-    -- },
-
     -- buffer line
     {
         "akinsho/bufferline.nvim",
@@ -129,7 +121,13 @@ return {
             notifier = {
                 enabled = true,
             },
-            image = {},
+            image = {
+                doc = {
+                    enable = true,
+                    inline = false,
+                    float = false,
+                },
+            },
             dashboard = {
                 sections = {
 

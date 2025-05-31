@@ -7,6 +7,7 @@ local function toggle_checkbox()
     local lineno = cursor[1]
     local line = vim.api.nvim_buf_get_lines(0, lineno - 1, lineno, false)[1] or ""
     if string.find(line, "%[ %]") then
+        ---@diagnostic disable-next-line: no-unknown
         line = line:gsub("%[ %]", "%[x%]")
     else
         line = line:gsub("%[x%]", "%[ %]")
@@ -34,6 +35,13 @@ vim.keymap.set(
     "<leader>rd",
     require("ntawileh.dates").bumpDate,
     { noremap = true, silent = true, desc = "Bump date" }
+)
+
+vim.keymap.set(
+    "n",
+    "<leader>NN",
+    require("ntawileh.obsidian").show_tasks,
+    { noremap = true, silent = true, desc = "obsidian TODOs" }
 )
 
 local path = vim.fn.expand("%:p")

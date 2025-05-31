@@ -14,6 +14,7 @@ return {
             orange = "#F5A97F",
             fg = "#c3ccdc",
             bg = "#112638",
+            semilightgray = "#5b6268",
             inactive_bg = "#2c3043",
         }
 
@@ -52,16 +53,17 @@ return {
 
         ---get attached lsp clients
         ---@return string
+        ---
         local function attached_lsp_clients()
-            local clients = {}
-            for _, client in pairs(vim.lsp.buf_get_clients()) do
-                table.insert(clients, client.name)
-            end
-            if #clients == 0 then
-                return ""
-            else
-                return "󱉶 " .. table.concat(clients, ",")
-            end
+            local bufnr = vim.api.nvim_get_current_buf()
+            local names = vim.tbl_map(
+                ---@param c vim.lsp.Client
+                function(c)
+                    return c.name
+                end,
+                vim.lsp.get_clients({ bufnr = bufnr })
+            )
+            return next(names) and ("󱉶 " .. table.concat(names, ",")) or ""
         end
 
         ---check if we are recording and return status
@@ -92,6 +94,7 @@ return {
                     { "encoding" },
                     { "fileformat" },
                     { "filetype" },
+                    { "g:obsidian", color = { fg = colors.violet, bg = colors.bg } },
                     { attached_lsp_clients },
                 },
             },

@@ -2,7 +2,8 @@ local vault_path = vim.fn.expand("~") .. "/Documents/notes"
 local inbox_dir = "0-Inbox"
 --
 return {
-    "epwalsh/obsidian.nvim",
+    --"epwalsh/obsidian.nvim",
+    "obsidian-nvim/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
     lazy = true,
     -- ft = "markdown",
@@ -18,10 +19,10 @@ return {
     dependencies = {
         -- Required.
         "nvim-lua/plenary.nvim",
-        "hrsh7th/nvim-cmp",
+        -- "hrsh7th/nvim-cmp",
         -- "nvim-telescope/telescope.nvim",
-        "ibhagwan/fzf-lua",
-        "nvim-treesitter/nvim-treesitter",
+        -- "ibhagwan/fzf-lua",
+        -- "nvim-treesitter/nvim-treesitter",
     },
 
     keys = {
@@ -54,7 +55,10 @@ return {
 
     opts = {
         dir = vault_path, -- no need to call 'vim.fn.expand' here
-        completion = { nvim_cmp = false },
+        completion = {
+            nvim_cmp = false,
+            blink = true,
+        },
 
         daily_notes = {
             folder = "5-Daily",
@@ -134,6 +138,14 @@ return {
             -- },
         },
 
+        attachments = {
+            img_folder = "meta/attachments",
+        },
+        statusline = {
+            enabled = true,
+            format = " {{properties}} 󰌷 {{backlinks}} 󰆙 {{words}}/{{chars}}",
+        },
+
         new_notes_location = "notes_subdir",
 
         -- Optional, customize how note IDs are generated given an optional title.
@@ -167,7 +179,7 @@ return {
         end,
 
         picker = {
-            name = "fzf-lua",
+            name = "snacks.pick",
         },
     },
 
