@@ -1,0 +1,65 @@
+gui:
+    theme:
+        # Borders
+        activeBorderColor:
+            - "#2DD5B7" # cyan jade for active highlight
+            - bold
+        inactiveBorderColor:
+            - "#53685B" # muted green-gray for inactive borders
+        searchingActiveBorderColor:
+            - "#D7C995" # soft gold for active search
+
+        # Text colors
+        optionsTextColor:
+            - "#ACD4CF" # bright blue for option menus
+        defaultFgColor:
+            - "#C1C497" # main foreground
+        inactiveViewFgColor:
+            - "#53685B" # subdued text for inactive panels
+
+        # Backgrounds
+        selectedLineBgColor:
+            - "#23372B" # dark jade green for selected line
+        inactiveSelectedLineBgColor:
+            - "#143614" # deeper green for inactive selected line
+        cherryPickedCommitBgColor:
+            - "#143614" # deep green background for cherry-picked commits
+        cherryPickedCommitFgColor:
+            - "#E5C736" # bright yellow text for cherry-picked commits
+        markedBaseCommitBgColor:
+            - "#509475" # soft teal for marked base commit
+        markedBaseCommitFgColor:
+            - "#F6F5DD" # light foreground for contrast
+
+        # Git status colors
+        unstagedChangesColor:
+            - "#FF5345" # vivid red for unstaged changes
+        stagedChangesColor:
+            - "#549e6a" # green for staged changes
+        mergingChangesColor:
+            - "#E5C736" # bright yellow for merge conflicts
+
+        # Commit diff highlights
+        diffAddedColor:
+            - "#549e6a" # green for added lines
+        diffRemovedColor:
+            - "#FF5345" # red for removed lines
+        diffChangedColor:
+            - "#E5C736" # yellow for modified lines
+        diffSectionColor:
+            - "#75bbb3" # teal for diff section headers
+        diffWhitespaceColor:
+            - "#ACD4CF" # subtle blue for whitespace markers
+
+        # Search & info
+        searchMatchColor:
+            - "#2DD5B7" # cyan for search matches
+        searchMatchSelectedColor:
+            - "#D7C995" # soft gold for selected search match
+        warningFgColor:
+            - "#FF5345" # warning text in vivid red
+        errorFgColor:
+            - "#db9f9c" # softer red for errors
+
+    authorColors:
+        "*": "#75bbb3" # bright teal for author names
