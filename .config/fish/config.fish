@@ -42,6 +42,9 @@ set -U FZF_DEFAULT_COMMAND "fd -H"
 # --cycle --layout=reverse --border --ansi --height=80% --preview-window=wrap --marker=' '"
 
 #set -Ux FZF_TMUX_OPTS -p
+#
+
+set -Ux LG_CONFIG_FILE "$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/theme.yml"
 
 set -gx fzf_history_opts "--border-label=command history" "--prompt= "
 set -gx fzf_directory_opts "--bind=ctrl-o:execute($EDITOR {} &> /dev/tty),alt-o:execute(open {} &> /dev/tty),ctrl-space:execute(qlmanage -p {} &> /dev/tty)"

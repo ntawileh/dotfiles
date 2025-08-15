@@ -1,43 +1,20 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
 notARepository: skip
-gui:
-  nerdFontsVersion: "3"
-  border: rounded
-  mouseEvents: false
-  theme:
-    activeBorderColor:
-      - "#5ef1ff"
-    inactiveBorderColor:
-      - "#7b8496"
-    searchingActiveBorderColor:
-      - "#ff5ef1"
-    optionsTextColor:
-      - "#3c4048"
-    selectedLineBgColor:
-      - "#3c4048"
-    cherryPickedCommitBgColor:
-      - "#3c4048"
-    cherryPickedCommitFgColor:
-      - "#ff5ea0"
-    unstagedChangesColor:
-      - "#ffbd5e"
-    defaultFgColor:
-      - "#ffffff"
 git:
-  parseEmoji: true
-  paging:
-    colorArg: always
-    #    useConfig: true
+    parseEmoji: true
+    paging:
+        colorArg: always
+        #    useConfig: true
 customCommands:
-  - key: "C"
-    command: "git cz c"
-    description: "commit with commitizen"
-    context: "files"
-    loadingText: "opening commitizen commit tool"
-    output: terminal
-  - key: "<c-C>"
-    command: "git --no-pager diff --staged | mods 'write a commit message for this patch. also write the long commit message. use semantic commits. break the lines at 80 chars' >.git/gcai; git commit -F .git/gcai -e"
-    description: "commit with ai/mods"
-    context: "files"
-    loadingText: "launching ai mods tool"
-    output: terminal
+    - key: "C"
+      command: "git cz c"
+      description: "commit with commitizen"
+      context: "files"
+      loadingText: "opening commitizen commit tool"
+      output: terminal
+    - key: "<c-C>"
+      command: "git --no-pager diff --staged | mods 'write a commit message for this patch. also write the long commit message. use semantic commits. break the lines at 80 chars' >.git/gcai; git commit -F .git/gcai -e"
+      description: "commit with ai/mods"
+      context: "files"
+      loadingText: "launching ai mods tool"
+      output: terminal
