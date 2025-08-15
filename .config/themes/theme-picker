@@ -1,0 +1,36 @@
+#!/usr/local/bin/bash
+
+THEMES_DIR=~/.config/themes
+
+theme=$(
+    cd $THEMES_DIR
+    fd --color never --max-depth 1 -t d --exclude '*.workflow' | sed 's:/$::' | gum choose
+)
+
+[[ -z $theme ]] && echo "No theme selected" && exit
+
+theme="${theme%/}"
+echo $theme
+
+rm -f "$THEMES_DIR/current"
+ln -sf "$THEMES_DIR/$theme" "$THEMES_DIR/current"
+
+mapfile -t scripts_array < <(
+    cd "$THEMES_DIR"
+    fd --max-depth 1 -t f --glob '*.sh'
+)
+
+for script in "${scripts_array[@]}"; do
+    full="$THEMES_DIR/$script" # fd returned a path relative to THEMES_DIR
+    echo "Running: $full"
+    if [ -x "$full" ]; then
+        "$full" "$theme" || echo "Failed: $full"
+    else
+        bash "$full" "$theme" || echo "Failed: $full"
+    fi
+done
+
+gum style \
+    --foreground 212 --border-foreground 212 --border double \
+    --align center --width 50 --margin "1 2" --padding "2 4" \
+    "$theme" 'Theme set. So cool!'
