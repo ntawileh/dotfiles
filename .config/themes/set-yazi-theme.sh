@@ -6,6 +6,11 @@ else
     exit 0
 fi
 
+exec_file="$1/yazi.sh"
+if [ -x "$exec_file" ]; then
+    "$exec_file"
+fi
+
 EXT_DIR="${HOME}/.config/yazi"
 
 echo "Creating $EXT_DIR/theme.toml"

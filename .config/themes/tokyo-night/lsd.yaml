@@ -1,0 +1,38 @@
+user: "#bb9af7"
+group: "#7aa2f7"
+permission:
+  read: "#b9f27c"
+  write: "#e0af68"
+  exec: "#f7768e"
+  exec-sticky: "#bb9af7"
+  no-access: "#565f89"
+  octal: "#7dcfff"
+  acl: "#7dcfff"
+  context: "#7aa2f7"
+date:
+  hour-old: "#7dcfff"
+  day-old: "#7aa2f7"
+  older: "#7aa2f7"
+size:
+  none: "#565f89"
+  small: "#b9f27c"
+  medium: "#e0af68"
+  large: "#e0af68"
+inode:
+  valid: "#bb9af7"
+  invalid: "#565f89"
+links:
+  valid: "#bb9af7"
+  invalid: "#565f89"
+tree-edge: "#414868"
+git-status:
+  default: "#a9b1d6"
+  unmodified: "#565f89"
+  ignored: "#565f89"
+  new-in-index: "#b9f27c"
+  new-in-workdir: "#b9f27c"
+  typechange: "#e0af68"
+  deleted: "#f7768e"
+  renamed: "#b9f27c"
+  modified: "#e0af68"
+  conflicted: "#f7768e"
