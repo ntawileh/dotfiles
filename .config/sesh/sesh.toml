@@ -29,4 +29,4 @@ startup_command = "y"
 [[session]]
 name = "second brain 🧠"
 path = "~/Documents/notes"
-startup_command = "nvim +ObsidianToday"
+startup_command = "nvim +ObsidianToday && exit"
