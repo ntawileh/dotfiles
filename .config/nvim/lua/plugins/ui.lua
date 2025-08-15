@@ -70,39 +70,6 @@ return {
             },
         },
     },
-
-    -- filename
-    {
-        "b0o/incline.nvim",
-        dependencies = { "catppuccin" },
-        event = "BufReadPre",
-        priority = 1200,
-        config = function()
-            local colors = require("catppuccin.palettes").get_palette("mocha")
-            require("incline").setup({
-                highlight = {
-                    groups = {
-                        InclineNormal = { guibg = colors.base, guifg = colors.pink },
-                        InclineNormalNC = { guifg = colors.mauve, guibg = colors.base },
-                    },
-                },
-                window = { margin = { vertical = 0, horizontal = 1 } },
-                hide = {
-                    cursorline = true,
-                },
-                render = function(props)
-                    local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-                    if vim.bo[props.buf].modified then
-                        filename = "[+] " .. filename
-                    end
-
-                    local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-                    return { { icon, guifg = color }, { " " }, { filename } }
-                end,
-            })
-        end,
-    },
-
     {
         "folke/zen-mode.nvim",
         cmd = "ZenMode",
@@ -131,26 +98,25 @@ return {
             dashboard = {
                 sections = {
 
-                    { section = "header" },
+                    { section = "header", indent = 1 },
+                    -- {
+                    --     pane = 1,
+                    --     section = "terminal",
+                    --     cmd = "~/.config/nt/color/shell-color-scripts/colorscript.sh -e crunchbang-mini",
+                    --     height = 10,
+                    --     padding = 1,
+                    -- },
                     {
-                        pane = 2,
-                        section = "terminal",
-                        cmd = "~/.config/nt/color/shell-color-scripts/colorscript.sh -e crunchbang-mini",
-                        height = 10,
-                        padding = 1,
-                    },
-                    { section = "keys", gap = 1, padding = 1 },
-                    {
-                        pane = 2,
+                        pane = 1,
                         icon = " ",
                         title = "Recent Files",
                         section = "recent_files",
-                        indent = 2,
+                        indent = 1,
                         padding = 1,
                     },
-                    { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+                    -- { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
                     {
-                        pane = 2,
+                        pane = 1,
                         icon = " ",
                         title = "Git Status",
                         section = "terminal",
@@ -159,12 +125,14 @@ return {
                         height = 5,
                         padding = 1,
                         ttl = 5 * 60,
-                        indent = 3,
+                        indent = 1,
                     },
-                    { section = "startup" },
+                    { section = "keys", gap = 0, padding = 1, pane = 2 },
+                    { section = "startup", indent = 1 },
                 },
                 preset = {
                     header = [[
+
     ██╗  ██╗██╗    ███╗   ██╗ █████╗ ██████╗ ██╗███╗   ███╗
     ██║  ██║██║    ████╗  ██║██╔══██╗██╔══██╗██║████╗ ████║
     ███████║██║    ██╔██╗ ██║███████║██║  ██║██║██╔████╔██║
@@ -192,7 +160,7 @@ return {
           { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
           { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
           { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
-          { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+          -- { icon = " ", key = "s", desc = "Restore Session", section = "session" },
           { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },

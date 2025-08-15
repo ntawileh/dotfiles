@@ -51,7 +51,6 @@ font-family = "Symbols Nerd Font Mono"
 font-size = 20
 macos-window-shadow = false
 mouse-hide-while-typing = true
-theme = light:catppuccin-latte,dark:catppuccin-mocha
 window-decoration = false
 window-padding-x = 16
 window-padding-y = 10
@@ -124,4 +123,4 @@ keybind = super+w=text:\x01\x78
 keybind = super+.=text:\x20\x3a\x77\x0d
 # nvim code actions
 keybind = super+.=text:\x20\x63\x61
-
+theme = light:catppuccin-latte,dark:catppuccin-mocha

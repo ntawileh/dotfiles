@@ -3,7 +3,7 @@ return {
         dir = "~/Documents/dev/nvim/plugins/mods.nvim",
         config = function()
             require("mods").setup({
-                model = "gpt-4.1",
+                model = "gpt-5-mini",
                 prompts = {
                     {
                         name = "Caveman",
@@ -56,6 +56,7 @@ return {
                 -- See the configuration section for more details
                 -- Load luvit types when the `vim.uv` word is found
                 { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                { path = "snacks.nvim", words = { "Snacks" } },
             },
         },
     },

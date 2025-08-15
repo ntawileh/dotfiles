@@ -37,13 +37,6 @@ vim.keymap.set(
     { noremap = true, silent = true, desc = "Bump date" }
 )
 
-vim.keymap.set(
-    "n",
-    "<leader>NN",
-    require("ntawileh.obsidian").show_tasks,
-    { noremap = true, silent = true, desc = "obsidian TODOs" }
-)
-
 local path = vim.fn.expand("%:p")
 if path:match("Documents/notes/") then
     require("supermaven-nvim.completion_preview").disable_inline_completion = true

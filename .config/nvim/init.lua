@@ -20,7 +20,6 @@ require("config.lazy")
 -- 	},
 -- })
 
-require("ntawileh.colors")
 require("ntawileh.formatting")
 require("ntawileh.supermaven").register_ai_keymaps()
 

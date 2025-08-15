@@ -33,22 +33,25 @@ vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
 vim.opt.mouse = "a"
 vim.opt.signcolumn = "yes"
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- clipboard
-vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+vim.schedule(function()
+    vim.opt.clipboard = "unnamedplus" -- use system clipboard as default register
+end)
 
 -- turn off swapfile
 vim.opt.swapfile = false
 
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
 -- Undercurl
-vim.cmd([[let &t_Cs = "\e[4:3m"]])
-vim.cmd([[let &t_Ce = "\e[4:0m"]])
+--vim.cmd([[let &t_Cs = "\e[4:3m"]])
+--vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append({ "r" })
-
-vim.cmd([[au BufNewFile,BufRead *.astro setf astro]])
-vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 

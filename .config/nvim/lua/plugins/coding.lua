@@ -12,6 +12,12 @@ return {
         "saghen/blink.cmp",
         config = {
             completion = {
+                accept = {
+                    -- experimental auto-brackets support
+                    auto_brackets = {
+                        enabled = false,
+                    },
+                },
                 list = { selection = { preselect = false, auto_insert = false } },
                 ghost_text = {
                     show_with_selection = false,
@@ -37,20 +43,4 @@ return {
         },
         opts = {},
     },
-
-    -- Go forward/backward with square brackets
-    -- {
-    --     "echasnovski/mini.bracketed",
-    --     event = "BufReadPost",
-    --     config = function()
-    --         local bracketed = require("mini.bracketed")
-    --         bracketed.setup({
-    --             file = { suffix = "" },
-    --             window = { suffix = "" },
-    --             quickfix = { suffix = "" },
-    --             yank = { suffix = "" },
-    --             treesitter = { suffix = "n" },
-    --         })
-    --     end,
-    -- },
 }

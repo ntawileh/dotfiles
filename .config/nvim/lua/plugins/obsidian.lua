@@ -4,7 +4,7 @@ local inbox_dir = "0-Inbox"
 return {
     --"epwalsh/obsidian.nvim",
     "obsidian-nvim/obsidian.nvim",
-    version = "*", -- recommended, use latest release instead of latest commit
+    -- version = "*", -- recommended, use latest release instead of latest commit
     lazy = true,
     -- ft = "markdown",
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
@@ -26,17 +26,25 @@ return {
     },
 
     keys = {
-        { "<leader>N", "", desc = "Obsidian" },
-        { "<leader>Nd", ":ObsidianToday<cr>", desc = "obsidian [d]aily" },
-        { "<leader>Nt", ":ObsidianToday 1<cr>", desc = "obsidian [t]omorrow" },
-        { "<leader>Ny", ":ObsidianToday -1<cr>", desc = "obsidian [y]esterday" },
-        { "<leader>Nb", ":ObsidianBacklinks<cr>", desc = "obsidian [b]acklinks" },
-        { "<leader>Nl", ":ObsidianLink<cr>", desc = "obsidian [l]ink selection" },
-        { "<leader>Nf", ":ObsidianFollowLink<cr>", desc = "obsidian [f]ollow link" },
-        { "<leader>Nn", ":ObsidianNew<cr>", desc = "obsidian [n]ew" },
-        { "<leader>Ns", ":ObsidianSearch<cr>", desc = "obsidian [s]earch" },
-        { "<leader>NO", ":ObsidianQuickSwitch<cr>", desc = "obsidian [O]pen quickswitch" },
-        { "<leader>No", ":ObsidianOpen<cr>", desc = "obsidian [o]pen in app" },
+        { "<leader>o", "", desc = "Obsidian" },
+        { "<leader>od", ":ObsidianToday<cr>", desc = "obsidian [d]aily" },
+        { "<leader>oT", ":ObsidianToday 1<cr>", desc = "obsidian [T]omorrow" },
+        { "<leader>oy", ":ObsidianToday -1<cr>", desc = "obsidian [y]esterday" },
+        { "<leader>ob", ":ObsidianBacklinks<cr>", desc = "obsidian [b]acklinks" },
+        { "<leader>ol", ":ObsidianLink<cr>", desc = "obsidian [l]ink selection" },
+        { "<leader>of", ":ObsidianFollowLink<cr>", desc = "obsidian [f]ollow link" },
+        { "<leader>on", ":ObsidianNew<cr>", desc = "obsidian [n]ew" },
+        { "<leader>os", ":ObsidianSearch<cr>", desc = "obsidian [s]earch" },
+        { "<leader>oO", ":ObsidianQuickSwitch<cr>", desc = "obsidian [O]pen quickswitch" },
+        { "<leader>oo", ":ObsidianOpen<cr>", desc = "obsidian [o]pen in app" },
+        { "<leader>oP", ":Obsidian paste_img <cr>", desc = "obsidian [P]aste image" },
+        {
+            "<leader>ot",
+            function()
+                require("ntawileh.obsidian").show_tasks()
+            end,
+            desc = "obsidian [t]asks",
+        },
     },
 
     cmd = {
@@ -54,7 +62,13 @@ return {
     },
 
     opts = {
-        dir = vault_path, -- no need to call 'vim.fn.expand' here
+        -- dir = vault_path, -- no need to call 'vim.fn.expand' here
+        workspaces = {
+            {
+                name = "nadim",
+                path = vault_path,
+            },
+        },
         completion = {
             nvim_cmp = false,
             blink = true,
@@ -89,6 +103,7 @@ return {
         -- Optional, for templates (see below).
         templates = {
             subdir = "meta/templates",
+            folder = "meta/templates",
             date_format = "%Y-%m-%d-%a",
             time_format = "%H:%M",
         },
@@ -97,12 +112,12 @@ return {
             vim.fn.jobstart({ "open", url })
         end,
 
-        -- Optional, set to true if you use the Obsidian Advanced URI plugin.
-        -- https://github.com/Vinzent03/obsidian-advanced-uri
-        use_advanced_uri = true,
+        open = {
+            func = function(uri)
+                vim.ui.open(uri, { cmd = { "open", "-a", "/Applications/Obsidian.app" } })
+            end,
+        },
 
-        -- Optional, set to true to force ':ObsidianOpen' to bring the app to the foreground.
-        open_app_foreground = true,
         ui = {
             enable = false, -- set to false to disable all additional syntax features
             -- update_debounce = 200, -- update delay after a text change (in milliseconds)
@@ -140,10 +155,7 @@ return {
 
         attachments = {
             img_folder = "meta/attachments",
-        },
-        statusline = {
-            enabled = true,
-            format = " {{properties}} 󰌷 {{backlinks}} 󰆙 {{words}}/{{chars}}",
+            confirm_image_paste = true,
         },
 
         new_notes_location = "notes_subdir",
@@ -172,10 +184,15 @@ return {
         ---@param spec { id: string, dir: obsidian.Path, title: string|? }
         ---@return string|obsidian.Path The full path to the new note.
         note_path_func = function(spec)
-            -- This is equivalent to the default behavior.
-            local path = spec.dir / inbox_dir / tostring(spec.id)
-            -- local path = vault_path / inbox_dir / tostring(spec.id)
-            return path:with_suffix(".md")
+            local dir_str = tostring(spec.dir)
+            if dir_str:match("Daily/?$") then -- does NOT end with 'Daily' or 'Daily/'
+                local path = spec.dir / tostring(spec.id)
+                return path:with_suffix(".md")
+            else
+                -- Handle or return nil or spec.dir as needed
+                local path = spec.dir / inbox_dir / tostring(spec.id)
+                return path:with_suffix(".md")
+            end
         end,
 
         picker = {

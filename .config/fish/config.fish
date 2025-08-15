@@ -1,7 +1,5 @@
 fish_vi_key_bindings
-set -g BAT_THEME TwoDark
-fish_config theme choose catppuccin-mocha
-
+# fish_config theme choose catppuccin-mocha
 
 alias vi="vim"
 alias n="nvim"
@@ -12,7 +10,6 @@ alias get_idf=". $HOME/esp/esp-idf/export.fish"
 # dotfiles
 alias dot='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias lazydot='lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
 
 # ls
 alias ls='lsd --group-dirs first'
@@ -37,12 +34,12 @@ set -gx PATH $PATH $HOME/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/l
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 set -U FZF_DEFAULT_COMMAND "fd -H"
-set -gx FZF_DEFAULT_OPTS "\
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
---color=selected-bg:#45475a \
---cycle --layout=reverse --border --ansi --height=80% --preview-window=wrap --marker=' '"
+# set -gx FZF_DEFAULT_OPTS "\
+# --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+# --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+# --color=selected-bg:#45475a \
+# --cycle --layout=reverse --border --ansi --height=80% --preview-window=wrap --marker=' '"
 
 #set -Ux FZF_TMUX_OPTS -p
 
@@ -65,7 +62,6 @@ fzf_configure_bindings --git_status=\cs --git_log=\cg --variables=\ce --processe
 zoxide init fish | source
 starship init fish | source
 atuin init fish | source
-
 
 # pnpm
 set -gx PNPM_HOME /Users/nadimtawileh/Library/pnpm

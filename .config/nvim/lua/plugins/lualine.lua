@@ -18,39 +18,6 @@ return {
             inactive_bg = "#2c3043",
         }
 
-        local my_lualine_theme = {
-            normal = {
-                a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
-                b = { bg = colors.bg, fg = colors.fg },
-                c = { bg = colors.bg, fg = colors.fg },
-            },
-            insert = {
-                a = { bg = colors.green, fg = colors.bg, gui = "bold" },
-                b = { bg = colors.bg, fg = colors.fg },
-                c = { bg = colors.bg, fg = colors.fg },
-            },
-            visual = {
-                a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
-                b = { bg = colors.bg, fg = colors.fg },
-                c = { bg = colors.bg, fg = colors.fg },
-            },
-            command = {
-                a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
-                b = { bg = colors.bg, fg = colors.fg },
-                c = { bg = colors.bg, fg = colors.fg },
-            },
-            replace = {
-                a = { bg = colors.red, fg = colors.bg, gui = "bold" },
-                b = { bg = colors.bg, fg = colors.fg },
-                c = { bg = colors.bg, fg = colors.fg },
-            },
-            inactive = {
-                a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
-                b = { bg = colors.inactive_bg, fg = colors.semilightgray },
-                c = { bg = colors.inactive_bg, fg = colors.semilightgray },
-            },
-        }
-
         ---get attached lsp clients
         ---@return string
         ---
@@ -79,7 +46,7 @@ return {
         lualine.setup({
 
             options = {
-                theme = my_lualine_theme,
+                theme = vim.g.lualine_theme or "auto",
                 section_separators = "",
                 component_separators = "",
             },
@@ -94,7 +61,6 @@ return {
                     { "encoding" },
                     { "fileformat" },
                     { "filetype" },
-                    { "g:obsidian", color = { fg = colors.violet, bg = colors.bg } },
                     { attached_lsp_clients },
                 },
             },
