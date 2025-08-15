@@ -1,0 +1,24 @@
+gui:
+  theme:
+    activeBorderColor:
+      - "#81a1c1"  # nord9
+      - bold
+    inactiveBorderColor:
+      - "#4c566a"  # nord3
+    optionsTextColor:
+      - "#5e81ac"  # nord10
+    selectedLineBgColor:
+      - "#3b4252"  # nord1
+    cherryPickedCommitBgColor:
+      - "#b48ead"  # nord15
+    cherryPickedCommitFgColor:
+      - "#88c0d0"  # nord8
+    unstagedChangesColor:
+      - "#ebcb8b"  # nord13
+    defaultFgColor:
+      - "#d8dee9"  # nord4
+    searchingActiveBorderColor:
+      - "#a3be8c"  # nord14
+
+authorColors:
+  "*": "#8fbcbb"  # nord7
