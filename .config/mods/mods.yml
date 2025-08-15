@@ -65,6 +65,14 @@ apis:
         api-key:
         api-key-env: OPENAI_API_KEY
         models: # https://platform.openai.com/docs/models
+            gpt-5-mini:
+                aliases: ["gpt5mini"]
+                max-input-chars: 392000
+                fallback: gpt-4o
+            gpt-5:
+                aliases: ["gpt5"]
+                max-input-chars: 392000
+                fallback: gpt-4o
             gpt-4.1:
                 aliases: ["gpt4.1"]
                 max-input-chars: 392000
@@ -317,3 +325,17 @@ apis:
             deepseek-code:
                 aliases: ["ds-code"]
                 max-input-chars: 384000
+# mcp-servers:
+#     github:
+#         command: docker
+#         args:
+#             - run
+#             - "-i"
+#             - "--rm"
+#             - "-e"
+#             - GITHUB_PERSONAL_ACCESS_TOKEN
+#             - "ghcr.io/github/github-mcp-server"
+#     obsidian:
+#         command: uvx
+#         args:
+#             - "mcp-obsidian"
