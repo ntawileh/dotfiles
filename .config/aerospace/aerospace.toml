@@ -137,6 +137,8 @@ alt-shift-e = 'move-node-to-workspace E'
 alt-shift-n = 'move-node-to-workspace N'
 alt-shift-t = 'move-node-to-workspace T'
 
+alt-shift-w = 'exec-and-forget cd ~/.config/themes/ && ./set-next-wallpaper.sh'
+
 cmd-h = []     # Disable "hide application"
 cmd-alt-h = [] # Disable "hide others"
 
