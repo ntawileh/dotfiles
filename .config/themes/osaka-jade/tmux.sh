@@ -1,7 +1,7 @@
 # Osaka Color Pallette
 bg='#111c18'
 fg='#C1C497'
-dark_purple="#D2689C"
+dark_purple="#459451"
 light_purple="#D2689C"
 orange="#E5C736"
 red="#FF5345"

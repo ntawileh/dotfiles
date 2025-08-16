@@ -7,4 +7,5 @@ else
 fi
 
 echo "Running $1/fish.fish"
+chmod +x "$1/fish.fish"
 "$1/fish.fish"

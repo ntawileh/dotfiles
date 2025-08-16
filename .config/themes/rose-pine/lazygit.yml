@@ -1,0 +1,24 @@
+gui:
+  theme:
+    activeBorderColor:
+      - "#f6c177"  # Gold (bright/yellow)
+      - bold
+    inactiveBorderColor:
+      - "#44415a"  # Highlight Med (dark border)
+    optionsTextColor:
+      - "#9ccfd8"  # Foam (cyan/blue accent)
+    selectedLineBgColor:
+      - "#2a283e"  # Highlight Low (selected row)
+    cherryPickedCommitBgColor:
+      - "#393552"  # Overlay (special bg)
+    cherryPickedCommitFgColor:
+      - "#ea9a97"  # Rose (accent)
+    unstagedChangesColor:
+      - "#eb6f92"  # Love (red)
+    defaultFgColor:
+      - "#e0def4"  # Text (main text)
+    searchingActiveBorderColor:
+      - "#3e8fb0"  # Pine (search border/accent)
+
+authorColors:
+  "*": "#c4a7e7"  # Iris (purple)

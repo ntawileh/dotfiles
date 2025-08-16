@@ -1,0 +1,33 @@
+| Label                  | Hex Code  | Description                        |
+| ---------------------- | --------- | ---------------------------------- |
+| **bg**                 | `#282828` | Deep, dark charcoal grey           |
+| **red**                | `#cc241d` | Vivid red                          |
+| **green**              | `#98971a` | Olive green                        |
+| **yellow**             | `#d79921` | Warm, golden yellow                |
+| **blue**               | `#458588` | Muted teal blue                    |
+| **purple**             | `#b16286` | Dusty mauve-purple                 |
+| **aqua**               | `#689d6a` | Soft, subdued aqua-green           |
+| **gray**               | `#a89984` | Warm medium gray                   |
+| **gray** (light)       | `#928374` | Slightly darker, soft gray         |
+| **red** (bright)       | `#fb4934` | Bright, fiery red                  |
+| **green** (bright)     | `#b8bb26` | Lighter yellow-green               |
+| **yellow** (bright)    | `#fabd2f` | Bright, sunny yellow               |
+| **blue** (lighter)     | `#83a598` | Light teal-blue                    |
+| **purple** (lighter)   | `#d3869b` | Light dusty purple                 |
+| **aqua** (lighter)     | `#8ec07c` | Lighter aqua green                 |
+| **fg**                 | `#ebdbb2` | Soft, warm beige                   |
+| **bg0\_h**             | `#1d2021` | Very dark charcoal (almost black)  |
+| **bg0**                | `#282828` | Same as “bg”—deep charcoal         |
+| **bg1**                | `#3c3836` | Dark charcoal with brown undertone |
+| **bg2**                | `#504945` | Mid-dark brownish charcoal         |
+| **bg3**                | `#665c54` | Medium brown-gray                  |
+| **bg4**                | `#7c6f64` | Warm gray-brown                    |
+| **gray** (bg4 variant) | `#928374` | Same as earlier light gray         |
+| **orange** (darker)    | `#d65d0e` | Deep burnt orange                  |
+| **bg0\_s**             | `#32302f` | Slate gray with slight warmth      |
+| **fg4**                | `#a89984` | Same as the "gray" (#a89984)       |
+| **fg3**                | `#bdae93` | Light beige-gray                   |
+| **fg2**                | `#d5c4a1` | Pale warm beige                    |
+| **fg1**                | `#ebdbb2` | Same as “fg”—soft warm beige       |
+| **fg0**                | `#fbf1c7` | Very pale cream-beige              |
+| **orange** (bright)    | `#fe8019` | Bright, bold orange                |

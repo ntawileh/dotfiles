@@ -1,5 +1,6 @@
 file="$1/bat.fish"
 if [ -f "$file" ]; then
+    chmod +x "$file"
     echo "Running $file"
     "$file"
 else

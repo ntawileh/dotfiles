@@ -4,6 +4,7 @@
 
 BACKGROUNDS_DIR="$PWD/current/backgrounds/"
 CURRENT_BACKGROUND_LINK="$PWD/current/background"
+SOLID_BACKGROUND="$PWD/solid-bg.jpg"
 
 mapfile -d '' -t BACKGROUNDS < <(find "$BACKGROUNDS_DIR" -type f -print0 | sort -z)
 TOTAL=${#BACKGROUNDS[@]}
@@ -11,6 +12,7 @@ TOTAL=${#BACKGROUNDS[@]}
 if [[ $TOTAL -eq 0 ]]; then
     terminal-notifier -message "No backgrounds found" -title "Set Next Wallpaper"
 else
+    automator -i "$SOLID_BACKGROUND" ./setDesktopWallpaper.workflow
     # Get current background from symlink
     if [[ -L "$CURRENT_BACKGROUND_LINK" ]]; then
         CURRENT_BACKGROUND=$(readlink "$CURRENT_BACKGROUND_LINK")
@@ -40,5 +42,5 @@ else
     # Set new background symlink
     ln -nsf "$NEW_BACKGROUND" "$CURRENT_BACKGROUND_LINK"
 
-    automator -i $NEW_BACKGROUND ./setDesktopWallpaper.workflow
+    automator -i "$NEW_BACKGROUND" ./setDesktopWallpaper.workflow
 fi

@@ -7,7 +7,8 @@ else
 fi
 
 exec_file="$1/yazi.sh"
-if [ -x "$exec_file" ]; then
+if [ -f "$exec_file" ]; then
+    chmod +x "$exec_file"
     "$exec_file"
 fi
 

@@ -1,0 +1,20 @@
+# Rose Pine for TMUX
+bg='#232136'
+fg='#e0def4'
+# dark_purple='#c4a7e7'
+light_purple='#c4a7e7'
+dark_purple='#ea9a97'
+orange='#ea9a97'
+red="#eb6f92"
+cyan="#9ccfd8"
+green="#9ccfd8"
+pink="#c4a7e7"
+yellow="#f6c177"
+maroon="#ea9a97"
+teal="#9ccfd8"
+sapphire="#3e8fb0"
+blue="#3e8fb0"
+dark_gray="#393552"
+gray='#232136'
+# gray='#908caa'
+white='#e0def4'

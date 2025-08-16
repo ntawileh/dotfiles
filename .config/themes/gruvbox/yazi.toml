@@ -1,0 +1,4 @@
+[flavor]
+use = "gruvbox-dark"
+# For Yazi 0.4 and above
+dark = "gruvbox-dark"

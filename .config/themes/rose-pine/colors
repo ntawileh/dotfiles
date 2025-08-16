@@ -1,0 +1,30 @@
+Base
+#232136	rgb(35, 33, 54)	hsl(246deg, 24%, 17%)
+Surface
+#2a273f	rgb(42, 39, 63)	hsl(248deg, 24%, 20%)
+Overlay
+#393552	rgb(57, 53, 82)	hsl(248deg, 21%, 26%)
+Muted
+#6e6a86	rgb(110, 106, 134)	hsl(249deg, 12%, 47%)
+Subtle
+#908caa	rgb(144, 140, 170)	hsl(248deg, 15%, 61%)
+Text
+#e0def4	rgb(224, 222, 244)	hsl(245deg, 50%, 91%)
+Love
+#eb6f92	rgb(235, 111, 146)	hsl(343deg, 76%, 68%)
+Gold
+#f6c177	rgb(246, 193, 119)	hsl(35deg, 88%, 72%)
+Rose
+#ea9a97	rgb(234, 154, 151)	hsl(2deg, 66%, 75%)
+Pine
+#3e8fb0	rgb(62, 143, 176)	hsl(197deg, 48%, 47%)
+Foam
+#9ccfd8	rgb(156, 207, 216)	hsl(189deg, 43%, 73%)
+Iris
+#c4a7e7	rgb(196, 167, 231)	hsl(267deg, 57%, 78%)
+Highlight Low
+#2a283e	rgb(42, 40, 62)	hsl(245deg, 22%, 20%)
+Highlight Med
+#44415a	rgb(68, 65, 90)	hsl(247deg, 16%, 30%)
+Highlight High
+#56526e	rgb(86, 82, 110)	hsl(249deg, 15%, 38%)

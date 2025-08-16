@@ -1,0 +1,4 @@
+[flavor]
+use = "rose-pine-moon"
+# For Yazi 0.4 and above
+dark = "rose-pine-moon"
