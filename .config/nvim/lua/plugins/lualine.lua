@@ -5,19 +5,6 @@ return {
         local lualine = require("lualine")
         local lazy_status = require("lazy.status") -- to configure lazy pending updates count
 
-        local colors = {
-            blue = "#8AADF4",
-            green = "#A6DA95",
-            violet = "#b7bdf8",
-            yellow = "#EED49F",
-            red = "#ED8796",
-            orange = "#F5A97F",
-            fg = "#c3ccdc",
-            bg = "#112638",
-            semilightgray = "#5b6268",
-            inactive_bg = "#2c3043",
-        }
-
         ---get attached lsp clients
         ---@return string
         ---
@@ -51,12 +38,11 @@ return {
                 component_separators = "",
             },
             sections = {
-                lualine_a = { { "mode" }, { recording, color = { fg = colors.red, bg = colors.bg } } },
+                lualine_a = { { "mode" }, { recording } },
                 lualine_x = {
                     {
                         lazy_status.updates,
                         cond = lazy_status.has_updates,
-                        color = { fg = colors.orange },
                     },
                     { "encoding" },
                     { "fileformat" },
