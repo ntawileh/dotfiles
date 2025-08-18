@@ -124,3 +124,4 @@ keybind = super+.=text:\x20\x3a\x77\x0d
 # nvim code actions
 keybind = super+.=text:\x20\x63\x61
 theme = light:tokyonight-day,dark:tokyonight_moon
+background-opacity = 0.95

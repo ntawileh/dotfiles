@@ -10,7 +10,7 @@ config="$HOME/.config/ghostty/config"
 theme_file="$1/ghostty"
 
 echo $theme
-cat "$config" | grep -v "^theme =" >"$config.tmp"
+cat "$config" | grep -v "^theme =" | grep -v "^background-opacity =" >"$config.tmp"
 cat $theme_file >>"$config.tmp"
 mv "$config.tmp" "$config"
 
