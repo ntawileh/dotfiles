@@ -2,14 +2,24 @@
 
 THEMES_DIR=~/.config/themes
 
-theme=$(
+if [ "$1" == "list" ]; then
     cd $THEMES_DIR
-    fd --color never --max-depth 1 -t d --exclude '*.workflow' | sed 's:/$::' | gum choose
-)
+    fd --color never --max-depth 1 -t d --exclude '*.workflow' | sed 's:/$::'
+    exit
+fi
 
-[[ -z $theme ]] && echo "No theme selected" && exit
+if [ ! -e "$1" ]; then
+    theme=$(
+        cd $THEMES_DIR
+        fd --color never --max-depth 1 -t d --exclude '*.workflow' | sed 's:/$::' | gum choose
+    )
 
-theme="${theme%/}"
+    [[ -z $theme ]] && echo "No theme selected" && exit
+
+    theme="${theme%/}"
+else
+    theme="$1"
+fi
 echo $theme
 
 rm -f "$THEMES_DIR/current"

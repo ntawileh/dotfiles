@@ -3,7 +3,7 @@ return {
         dir = "~/Documents/dev/nvim/plugins/mods.nvim",
         config = function()
             require("mods").setup({
-                model = "gpt-5-mini",
+                model = "gpt-4.1",
                 prompts = {
                     {
                         name = "Caveman",

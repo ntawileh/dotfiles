@@ -1,1 +1,1 @@
-cd ~/.config/themes && ./theme-picker
+cd ~/.config/themes && ./theme-picker $*

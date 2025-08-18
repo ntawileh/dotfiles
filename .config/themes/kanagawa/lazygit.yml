@@ -1,0 +1,24 @@
+gui:
+  theme:
+    activeBorderColor:
+      - "#c0a36e"  # Yellow (bright/gold)
+      - bold
+    inactiveBorderColor:
+      - "#727169"  # Bright black (dim border)
+    optionsTextColor:
+      - "#7e9cd8"  # Blue (accent)
+    selectedLineBgColor:
+      - "#2d4f67"  # Selection background
+    cherryPickedCommitBgColor:
+      - "#090618"  # Normal black (rich bg)
+    cherryPickedCommitFgColor:
+      - "#7fb4ca"  # Bright blue (accent fg)
+    unstagedChangesColor:
+      - "#e82424"  # Bright red
+    defaultFgColor:
+      - "#dcd7ba"  # Foreground (main text)
+    searchingActiveBorderColor:
+      - "#6a9589"  # Cyan (border/accent)
+
+authorColors:
+  "*": "#957fb8"  # Magenta (accent purple)
