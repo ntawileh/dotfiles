@@ -1,9 +1,10 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 scan_timeout = 10
-
-add_newline = false
+command_timeout = 200
+add_newline = true
 right_format = """$cmd_duration"""
+format = "[$directory$git_branch$git_status]($style)$character"
 
 [line_break]
 disabled = false
@@ -24,6 +25,8 @@ style = "yellow"
 read_only = " "
 truncation_symbol = "…/"
 style = "bold lavender"
+repo_root_style = "bold cyan"
+repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
 
 [hg_branch]
 symbol = " "
@@ -34,7 +37,8 @@ disabled = false
 [git_branch]
 disabled = false
 symbol = " "
-format = "[\\[$symbol$branch\\]]($style)"
+format = "[$branch]($style) "
+#format = "[\\[$symbol$branch\\]]($style)"
 #ignore_branches = ["master", "main"]
 
 [git_state]
@@ -44,12 +48,18 @@ cherry_pick = "[🍒 PICKING](bold red)"
 
 [git_status]
 disabled = false
-#up_to_date = "✓"
-deleted = "x"
-staged = '[++\($count\)](green)'
-ahead = "⇡${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-behind = "⇣${count}"
+format = '[$all_status]($style)'
+ahead = "⇡${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+behind = "⇣${count} "
+conflicted = " "
+up_to_date = " "
+untracked = "? "
+modified = " "
+stashed = ""
+staged = ""
+renamed = ""
+deleted = ""
 
 # trigger tmux reload when using gitmux
 # in tmux status bar
