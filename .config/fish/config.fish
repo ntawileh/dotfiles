@@ -34,15 +34,6 @@ set -gx PATH $PATH $HOME/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/l
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 set -U FZF_DEFAULT_COMMAND "fd -H"
-# set -gx FZF_DEFAULT_OPTS "\
-# --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-# --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
-# --color=selected-bg:#45475a \
-# --cycle --layout=reverse --border --ansi --height=80% --preview-window=wrap --marker=' '"
-
-#set -Ux FZF_TMUX_OPTS -p
-#
 
 set -Ux LG_CONFIG_FILE "$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/theme.yml"
 
@@ -73,3 +64,9 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 #
+## set universally by themes
+set -e -gU FZF_DEFAULT_OPTS
+
+if [ -f "$HOME/.config/themes/current/fzf.fish" ]
+    . "$HOME/.config/themes/current/fzf.fish"
+end

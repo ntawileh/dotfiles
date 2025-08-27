@@ -14,8 +14,7 @@ if [ $TMUX_STATUS -eq 0 ]; then # tmux is running
             --header " ${STATUS} - Time now is ${NOW} " --header-first --no-scrollbar \
             --bind 'tab:down,btab:up' \
             --preview '~/bin/pom  | sed -n "3p" | cut -d"|" -f1 | figlet -f starwars -w 70' \
-            --preview-window 'down:75%:nowrap' \
-            --color 'fg:#bbccdd,fg+:#ddeeff,bg:#334455,preview-bg:#223344,border:#778899'
+            --preview-window 'down:75%:nowrap'
 
     )
     tmux refresh-client -S >/dev/null 2>&1 &
@@ -24,3 +23,4 @@ else # tmux is not running
 fi
 
 # ~/bin/pom | head -1
+#             --color 'fg:#bbccdd,fg+:#ddeeff,bg:#334455,preview-bg:#223344,border:#778899'
