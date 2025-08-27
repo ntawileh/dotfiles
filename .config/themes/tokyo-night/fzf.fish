@@ -6,4 +6,4 @@ set -Ux FZF_DEFAULT_OPTS "\
   --color=marker:#b9f27c,fg+:#a9b1d6,prompt:#e0af68,hl+:#f7768e \
   --color=selected-bg:#7aa2f7 \
   --color=border:#565f89,label:#a9b1d6 \
-  --cycle --layout=reverse --border --ansi --height=80% --preview-window=wrap --marker='\uf02e '"
+  --cycle --layout=reverse --border --ansi --height=80% --preview-window=wrap --marker=' '"
