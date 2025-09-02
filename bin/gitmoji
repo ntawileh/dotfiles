@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# 'write a commit message for this patch. also write the long commit message. use semantic commits. break the lines at 80 chars'
+
+diff=$(git --no-pager diff --staged 2>/dev/null)
+
+if [[ -z "$diff" ]]; then
+    echo "no changes to commit"
+    exit 0
+fi
+
+tmpfile=$(mktemp /tmp/gitmoji.XXXXXX)
+cat ~/bin/gitmoji-prompt.md >$tmpfile
+echo "" >>$tmpfile
+echo "<Changes>" >>$tmpfile
+echo "$diff" >>$tmpfile
+echo "</Changes>" >>$tmpfile
+echo "$tmpfile"
+
+cat "$tmpfile" | mods >.git/gcai
+git commit -a -F .git/gcai -e
+rm "$tmpfile"

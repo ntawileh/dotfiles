@@ -13,7 +13,8 @@ customCommands:
       loadingText: "opening commitizen commit tool"
       output: terminal
     - key: "<c-C>"
-      command: "git --no-pager diff --staged | mods 'write a commit message for this patch. also write the long commit message. use semantic commits. break the lines at 80 chars' >.git/gcai; git commit -F .git/gcai -e"
+      #command: "git --no-pager diff --staged | mods 'write a commit message for this patch. also write the long commit message. use semantic commits. break the lines at 80 chars' >.git/gcai; git commit -F .git/gcai -e"
+      command: "gitmoji"
       description: "commit with ai/mods"
       context: "files"
       loadingText: "launching ai mods tool"

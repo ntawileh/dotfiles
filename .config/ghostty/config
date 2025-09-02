@@ -94,8 +94,12 @@ keybind = super+d=text:\x01D
 # keybind = super+e=
 # :Grep (find)
 keybind = super+f=text:\x3a\x47\x72\x65\x70\x0a
-# <perfix>+g (open lazygit window)
+# <prefix>+g (open lazygit window)
 keybind = super+g=text:\x01\x67
+# <prefix>+e (open neovim window) map to tmux+E
+keybind = super+e=text:\x01\x45
+# <prefix>+a (open ai window) map to tmux+A
+keybind = super+a=text:\x01\x41
 # hide?
 # keybind = super+h=
 # keybind = super+i=
