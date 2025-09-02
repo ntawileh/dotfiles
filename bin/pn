@@ -1,0 +1,1 @@
+tmux split-window -v -l 10 "pnpm run (jq -r '.scripts | keys[]' package.json | fzf --no-border); echo 'Close Pane?'; read -s -n 1"
