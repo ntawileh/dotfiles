@@ -14,4 +14,5 @@ cat "$config" | grep -v "^theme =" | grep -v "^background-opacity =" >"$config.t
 cat $theme_file >>"$config.tmp"
 mv "$config.tmp" "$config"
 
-osascript ./reload-ghostty.scpt
+#osascript ./reload-ghostty.scpt
+killall -SIGUSR2 ghostty
