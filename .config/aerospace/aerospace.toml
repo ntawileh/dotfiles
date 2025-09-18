@@ -94,66 +94,105 @@ outer.right = 10
 # alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-alt-slash = 'layout tiles horizontal vertical'
-alt-quote = 'layout accordion horizontal vertical'
+alt-cmd-ctrl-shift-slash = 'layout tiles horizontal vertical'
+alt-cmd-ctrl-shift-quote = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
+alt-cmd-ctrl-shift-h = 'focus left'
+alt-cmd-ctrl-shift-j = 'focus down'
+alt-cmd-ctrl-shift-k = 'focus up'
+alt-cmd-ctrl-shift-l = 'focus right'
+
+alt-cmd-ctrl-shift-p = 'layout floating tiling'
+alt-cmd-ctrl-shift-semicolon = 'mode service'
+alt-cmd-ctrl-shift-a = 'mode workspace'
+alt-cmd-ctrl-shift-q = 'mode mover'
+alt-cmd-ctrl-shift-i = 'mode input'
+alt-cmd-ctrl-shift-r = 'mode resize'
+alt-cmd-ctrl-shift-w = 'exec-and-forget cd ~/.config/themes/ && ./set-next-wallpaper.sh'
+
+cmd-h = []     # Disable "hide application"
+cmd-alt-h = [] # Disable "hide others"
+
+alt-cmd-ctrl-shift-f = 'fullscreen'
+alt-cmd-ctrl-shift-minus = 'resize smart -100'
+alt-cmd-ctrl-shift-equal = 'resize smart +100'
+
+alt-shift-f = 'exec-and-forget open /Users/nadimtawileh/'
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
+alt-tab = 'focus-back-and-forth'
+alt-cmd-ctrl-shift-tab = 'focus-back-and-forth'
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
+alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+
+[mode.workspace.binding]
+esc = 'mode main'
+alt-cmd-ctrl-shift-q = 'mode mover'
+tab = 'workspace next --wrap-around'
+
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+1 = ['workspace 1', 'mode main']
+2 = ['workspace 2', 'mode main']
+3 = ['workspace 3', 'mode main']
+4 = ['workspace 4', 'mode main']
+5 = ['workspace 5', 'mode main']
+e = ['workspace E', 'mode main']
+m = ['workspace M', 'mode main']
+n = ['workspace N', 'mode main']
+s = ['workspace S', 'mode main']
+t = ['workspace T', 'mode main']
+
+[mode.mover.binding]
+esc = 'mode main'
+alt-cmd-ctrl-shift-a = 'mode workspace'
+slash = 'layout tiles horizontal vertical'
+quote = 'layout accordion horizontal vertical'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+1 = 'move-node-to-workspace 1'
+2 = 'move-node-to-workspace 2'
+3 = 'move-node-to-workspace 3'
+4 = 'move-node-to-workspace 4'
+5 = 'move-node-to-workspace 5'
+e = 'move-node-to-workspace E'
+m = 'move-node-to-workspace M'
+n = 'move-node-to-workspace N'
+s = 'move-node-to-workspace S'
+t = 'move-node-to-workspace T'
+
+p = ['layout floating tiling'] # Toggle between floating and tiling layout
+# See: https://nikitabobko.github.io/AeroSpace/commands#move
+h = 'move left'
+j = 'move down'
+k = 'move up'
+l = 'move right'
+shift-1 = 'workspace 1'
+shift-2 = 'workspace 2'
+shift-3 = 'workspace 3'
+shift-4 = 'workspace 4'
+shift-5 = 'workspace 5'
+shift-e = 'workspace E'
+shift-m = 'workspace M'
+shift-n = 'workspace N'
+shift-s = 'workspace S'
+shift-t = 'workspace T'
+shift-p = ['layout floating tiling'] # Toggle between floating and tiling layout
+shift-f = ['layout floating tiling'] # Toggle between floating and tiling layout
+shift-h = 'join-with left'
+shift-j = 'join-with down'
+shift-k = 'join-with up'
+shift-l = 'join-with right'
 alt-h = 'focus left'
 alt-j = 'focus down'
 alt-k = 'focus up'
 alt-l = 'focus right'
 
-alt-p = 'layout floating tiling'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#move
-alt-shift-h = 'move left'
-alt-shift-j = 'move down'
-alt-shift-k = 'move up'
-alt-shift-l = 'move right'
-
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-shift-minus = 'resize smart -100'
-alt-shift-equal = 'resize smart +100'
+minus = 'resize smart -100'
+equal = 'resize smart +100'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
-alt-c = 'workspace C'
-alt-e = 'workspace E'
-alt-n = 'workspace N'
-alt-t = 'workspace T'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-1 = 'move-node-to-workspace 1'
-alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-4 = 'move-node-to-workspace 4'
-alt-shift-5 = 'move-node-to-workspace 5'
-alt-shift-c = 'move-node-to-workspace C'
-alt-shift-e = 'move-node-to-workspace E'
-alt-shift-n = 'move-node-to-workspace N'
-alt-shift-t = 'move-node-to-workspace T'
-
-alt-shift-w = 'exec-and-forget cd ~/.config/themes/ && ./set-next-wallpaper.sh'
-
-cmd-h = []     # Disable "hide application"
-cmd-alt-h = [] # Disable "hide others"
-
-alt-f = 'fullscreen'
-alt-shift-f = 'exec-and-forget open /Users/nadimtawileh/'
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-alt-tab = 'focus-back-and-forth'
-# See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
-
-# see: https://nikitabobko.github.io/aerospace/commands#mode
-alt-shift-semicolon = 'mode service'
-
-alt-shift-r = 'mode resize'
-alt-shift-i = 'mode input'
 
 [mode.resize.binding]
 h = 'resize width -50'
@@ -185,12 +224,20 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
+down = 'volume down'
+up = 'volume up'
+shift-down = ['volume set 0', 'mode main']
+
 [mode.input.binding]
-alt-shift-i = 'mode main'
+alt-cmd-ctrl-shift-i = 'mode main'
 
 
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
+run = "move-node-to-workspace T"
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
 run = "move-node-to-workspace T"
 
 [[on-window-detected]]
@@ -199,19 +246,19 @@ run = "move-node-to-workspace N"
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
-run = "move-node-to-workspace C"
+run = "move-node-to-workspace S"
 
-[[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
-run = "move-node-to-workspace C"
+# [[on-window-detected]]
+# if.app-id = 'com.hnc.Discord'
+# run = "move-node-to-workspace C"
 
 [[on-window-detected]]
 if.app-id = 'net.whatsapp.WhatsApp'
-run = "move-node-to-workspace C"
+run = "move-node-to-workspace M"
 
 [[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = "move-node-to-workspace T"
+if.app-id = 'com.google.Chrome.app.hpfldicfbfomlpcikngkocigghgafkph'
+run = "move-node-to-workspace M"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
