@@ -23,7 +23,7 @@ return {
   },
     },
     {
-        "echasnovski/mini.hipatterns",
+        "nvim-mini/mini.hipatterns",
         event = "BufReadPre",
         opts = {
             highlighters = {
