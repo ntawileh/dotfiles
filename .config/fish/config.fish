@@ -58,7 +58,7 @@ starship init fish | source
 atuin init fish | source
 
 # pnpm
-set -gx PNPM_HOME /Users/nadimtawileh/Library/pnpm
+set -gx PNPM_HOME /Users/nadim/Library/pnpm
 if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
