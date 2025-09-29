@@ -13,4 +13,4 @@ echo $theme_file
 cat $theme_file >"$config.tmp"
 mv "$config.tmp" "$config"
 
-tmux source-file ~/.tmux.conf && tmux display-message "tmux.conf reloaded."
+tmux source-file ~/.config/tmux/tmux.conf && tmux display-message "tmux.conf reloaded."
