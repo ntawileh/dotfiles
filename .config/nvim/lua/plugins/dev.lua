@@ -12,13 +12,13 @@ return {
                     },
                 },
             })
-            vim.keymap.set({ "v" }, "<leader>aa", function()
+            vim.keymap.set({ "v" }, "<leader>as", function()
                 require("mods").query({})
             end, {
                 desc = "Query Mods AI with selection as context",
             })
 
-            vim.keymap.set({ "n" }, "<leader>aa", function()
+            vim.keymap.set({ "n" }, "<leader>as", function()
                 require("mods").query({})
             end, {
                 desc = "Query Mods AI with current buffer as context",

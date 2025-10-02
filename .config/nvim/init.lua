@@ -21,7 +21,7 @@ require("config.lazy")
 -- })
 
 require("ntawileh.formatting")
-require("ntawileh.supermaven").register_ai_keymaps()
+-- require("ntawileh.supermaven").register_ai_keymaps()
 
 vim.diagnostic.config({
     virtual_text = false,

@@ -1,14 +1,5 @@
 return {
     {
-        "supermaven-inc/supermaven-nvim",
-        opts = {
-            color = {
-                suggestion_color = "#888888",
-                cterm = 244,
-            },
-        },
-    },
-    {
         "saghen/blink.cmp",
         config = {
             completion = {

@@ -38,6 +38,6 @@ vim.keymap.set(
 )
 
 local path = vim.fn.expand("%:p")
-if path:match("Documents/notes/") then
-    require("supermaven-nvim.completion_preview").disable_inline_completion = true
-end
+-- if path:match("Documents/notes/") then
+-- require("supermaven-nvim.completion_preview").disable_inline_completion = true
+-- end
