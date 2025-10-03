@@ -4,4 +4,4 @@ wget -O "$(bat --config-dir)/themes/Tokyo Night.tmTheme" \
     https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme
 
 bat cache --build
-set -Ux BAT_THEME tokyonight_night
+set -Ux BAT_THEME "Tokyo Night"
