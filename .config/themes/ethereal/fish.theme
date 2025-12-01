@@ -1,0 +1,26 @@
+# Ethereal Fish Shell Theme
+# Based on Ethereal Ghostty theme colors
+
+# Syntax Highlighting Colors
+fish_color_normal ffcead
+fish_color_command 7d82d9
+fish_color_keyword c89dc1
+fish_color_quote E9BB4F
+fish_color_redirection ffcead
+fish_color_end F99957
+fish_color_option c89dc1
+fish_color_error ED5B5A
+fish_color_param a3bfd1
+fish_color_comment 6d7db6
+fish_color_selection --background=060B1E
+fish_color_search_match --background=060B1E
+fish_color_operator 92a593
+fish_color_escape c89dc1
+fish_color_autosuggestion 6d7db6
+
+# Completion Pager Colors
+fish_pager_color_progress 6d7db6
+fish_pager_color_prefix 7d82d9
+fish_pager_color_completion ffcead
+fish_pager_color_description 6d7db6
+fish_pager_color_selected_background --background=060B1E

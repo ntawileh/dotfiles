@@ -1,0 +1,26 @@
+# name: 'Matte Black'
+# url: 'https://github.com/tahayvr/matte-black'
+# preferred_background: 121212
+
+fish_color_normal bebebe
+fish_color_command f59e0b
+fish_color_keyword D35F5F
+fish_color_quote FFC107
+fish_color_redirection 8a8a8d
+fish_color_end e68e0d
+fish_color_option D35F5F
+fish_color_error B91C1C
+fish_color_param bebebe
+fish_color_comment 8a8a8d
+fish_color_selection --background=333333
+fish_color_search_match --background=333333
+fish_color_operator f59e0b
+fish_color_escape D35F5F
+fish_color_autosuggestion 8a8a8d
+
+# Completion Pager Colors
+fish_pager_color_progress 8a8a8d
+fish_pager_color_prefix f59e0b
+fish_pager_color_completion bebebe
+fish_pager_color_description 8a8a8d
+fish_pager_color_selected_background --background=333333

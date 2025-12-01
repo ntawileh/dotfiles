@@ -1,0 +1,30 @@
+# name: 'Hackerman'
+# url: 'https://github.com/hackerman/fish'
+# preferred_background: 000000
+
+fish_color_normal 00ff00
+fish_color_command 00cc00
+fish_color_param 33ff33
+fish_color_keyword 66ff66
+fish_color_quote 99ff99
+fish_color_redirection 006600
+fish_color_end 00ff66
+fish_color_comment 004400
+fish_color_error ff0000
+fish_color_gray 003300
+fish_color_selection --background=002200
+fish_color_search_match --background=004400
+fish_color_option 99ff99
+fish_color_operator 006600
+fish_color_escape 66ff66
+fish_color_autosuggestion 004400
+fish_color_cancel ff0000
+fish_color_cwd 00ff66
+fish_color_user 00ff00
+fish_color_host 00cc00
+fish_color_host_remote 99ff99
+fish_color_status ff0000
+fish_pager_color_progress 004400
+fish_pager_color_prefix 006600
+fish_pager_color_completion 00ff00
+fish_pager_color_description 004400

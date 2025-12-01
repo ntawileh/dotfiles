@@ -10,9 +10,9 @@ config="$HOME/.config/ghostty/config"
 theme_file="$1/ghostty"
 
 echo $theme
-cat "$config" | grep -v "^theme =" | grep -v "^background-opacity =" >"$config.tmp"
-cat $theme_file >>"$config.tmp"
-mv "$config.tmp" "$config"
+#cat "$config" | grep -v "^theme =" | grep -v "^background-opacity =" >"$config.tmp"
+#cat $theme_file >>"$config.tmp"
+#mv "$config.tmp" "$config"
 
 #osascript ./reload-ghostty.scpt
 killall -SIGUSR2 ghostty
