@@ -22,7 +22,7 @@ after-login-command = []
 #
 
 # Start AeroSpace at login
-start-at-login = true
+start-at-login = false
 
 automatically-unhide-macos-hidden-apps = true
 
