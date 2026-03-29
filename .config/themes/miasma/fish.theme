@@ -1,0 +1,29 @@
+# name: 'Miasma'
+# preferred_background: 222222
+
+fish_color_normal c2c2b0
+fish_color_command 5f875f
+fish_color_param d7c483
+fish_color_keyword 78824b
+fish_color_quote bb7744
+fish_color_redirection c9a554
+fish_color_end b36d43
+fish_color_comment 666666
+fish_color_error b36d43
+fish_color_gray 666666
+fish_color_selection --background=685742
+fish_color_search_match --background=685742
+fish_color_option 5f875f
+fish_color_operator c9a554
+fish_color_escape bb7744
+fish_color_autosuggestion 666666
+fish_color_cancel b36d43
+fish_color_cwd c9a554
+fish_color_user 78824b
+fish_color_host 5f875f
+fish_color_host_remote 5f875f
+fish_color_status b36d43
+fish_pager_color_progress 666666
+fish_pager_color_prefix c9a554
+fish_pager_color_completion c2c2b0
+fish_pager_color_description 666666

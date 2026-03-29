@@ -1,0 +1,33 @@
+# Miasma Color Palette
+bg="#222222"
+fg="#c2c2b0"
+
+# Dracula-compatible names (used by n-tmux/dracula in powerline mode)
+dark_purple="#685742"
+light_purple="#d7c483"
+orange="#bb7744"
+red="#b36d43"
+cyan="#c9a554"
+green="#5f875f"
+pink="#bb7744"
+yellow="#c9a554"
+dark_gray="#000000"
+gray="#222222"
+white="#c2c2b0"
+
+# n-tmux theme tokens
+base="#222222"
+surface="#000000"
+overlay="#222222"
+muted="#666666"
+subtle="#78824b"
+text="#c2c2b0"
+color1="#685742"
+color2="#5f875f"
+color3="#b36d43"
+color4="#78824b"
+color5="#bb7744"
+color6="#c9a554"
+highlight1="#000000"
+highlight2="#000000"
+highlight3="#d7c483"

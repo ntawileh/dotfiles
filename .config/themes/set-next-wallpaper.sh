@@ -12,7 +12,12 @@ TOTAL=${#BACKGROUNDS[@]}
 if [[ $TOTAL -eq 0 ]]; then
     terminal-notifier -message "No backgrounds found" -title "Set Next Wallpaper"
 else
-    automator -i "$SOLID_BACKGROUND" ./setDesktopWallpaper.workflow
+    osascript -e 'tell application "System Events"
+        set img to POSIX file \"$SOLID_BACKGROUND\"
+        tell every desktop
+            set picture to img
+        end tell
+    end tell'
     # Get current background from symlink
     if [[ -L "$CURRENT_BACKGROUND_LINK" ]]; then
         CURRENT_BACKGROUND=$(readlink "$CURRENT_BACKGROUND_LINK")
@@ -42,5 +47,10 @@ else
     # Set new background symlink
     ln -nsf "$NEW_BACKGROUND" "$CURRENT_BACKGROUND_LINK"
 
-    automator -i "$NEW_BACKGROUND" ./setDesktopWallpaper.workflow
+    osascript -e "tell application \"System Events\"
+        set img to POSIX file \"$NEW_BACKGROUND\"
+        tell every desktop
+            set picture to img
+        end tell
+    end tell"
 fi
