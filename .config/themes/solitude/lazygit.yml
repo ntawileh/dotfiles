@@ -1,0 +1,65 @@
+gui:
+    theme:
+        # Borders
+        activeBorderColor:
+            - "#9fa5a9"
+            - bold
+        inactiveBorderColor:
+            - "#4b4e55"
+        searchingActiveBorderColor:
+            - "#d9dbdc"
+
+        # Text colors
+        optionsTextColor:
+            - "#a5aeb4"
+        defaultFgColor:
+            - "#cacccc"
+        inactiveViewFgColor:
+            - "#4b4e55"
+
+        # Backgrounds
+        selectedLineBgColor:
+            - "#0a0c0e"
+        inactiveSelectedLineBgColor:
+            - "#0a0c0e"
+        cherryPickedCommitBgColor:
+            - "#0a0c0e"
+        cherryPickedCommitFgColor:
+            - "#d9dbdc"
+        markedBaseCommitBgColor:
+            - "#9fa5a9"
+        markedBaseCommitFgColor:
+            - "#cacccc"
+
+        # Git status colors
+        unstagedChangesColor:
+            - "#de6145"
+        stagedChangesColor:
+            - "#9fa5a9"
+        mergingChangesColor:
+            - "#d9dbdc"
+
+        # Commit diff highlights
+        diffAddedColor:
+            - "#9fa5a9"
+        diffRemovedColor:
+            - "#de6145"
+        diffChangedColor:
+            - "#d9dbdc"
+        diffSectionColor:
+            - "#798186"
+        diffWhitespaceColor:
+            - "#4b4e55"
+
+        # Search & info
+        searchMatchColor:
+            - "#798186"
+        searchMatchSelectedColor:
+            - "#d9dbdc"
+        warningFgColor:
+            - "#d9dbdc"
+        errorFgColor:
+            - "#de6145"
+
+    authorColors:
+        "*": "#a5aeb4"

@@ -1,0 +1,29 @@
+# name: 'Solitude'
+# preferred_background: 101315
+
+fish_color_normal cacccc
+fish_color_command 9fa5a9
+fish_color_param a5aeb4
+fish_color_keyword 798186
+fish_color_quote aeaeae
+fish_color_redirection 707070
+fish_color_end 5d6367
+fish_color_comment 4b4e55
+fish_color_error de6145
+fish_color_gray 4b4e55
+fish_color_selection --background=798186
+fish_color_search_match --background=798186
+fish_color_option 9fa5a9
+fish_color_operator 707070
+fish_color_escape aeaeae
+fish_color_autosuggestion 4b4e55
+fish_color_cancel de6145
+fish_color_cwd 798186
+fish_color_user cacccc
+fish_color_host 9fa5a9
+fish_color_host_remote 9fa5a9
+fish_color_status de6145
+fish_pager_color_progress 4b4e55
+fish_pager_color_prefix 798186
+fish_pager_color_completion cacccc
+fish_pager_color_description 4b4e55

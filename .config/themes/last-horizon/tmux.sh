@@ -1,0 +1,33 @@
+# Last Horizon Color Palette
+bg="#0c0b0c"
+fg="#FAFCFB"
+
+# Dracula-compatible names (used by n-tmux/dracula in powerline mode)
+dark_purple="#6B5E73"
+light_purple="#a5a0b6"
+orange="#c38b7b"
+red="#c38b7b"
+cyan="#87a9b0"
+green="#87a9b0"
+pink="#b59790"
+yellow="#c4d8e2"
+dark_gray="#080708"
+gray="#0c0b0c"
+white="#FAFCFB"
+
+# n-tmux theme tokens
+base="#0c0b0c"
+surface="#080708"
+overlay="#0c0b0c"
+muted="#584e51"
+subtle="#6B5E73"
+text="#FAFCFB"
+color1="#b59790"
+color2="#87a9b0"
+color3="#c38b7b"
+color4="#6B5E73"
+color5="#c4d8e2"
+color6="#a5a0b6"
+highlight1="#080708"
+highlight2="#080708"
+highlight3="#e2dddc"

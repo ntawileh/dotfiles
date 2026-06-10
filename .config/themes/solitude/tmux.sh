@@ -1,0 +1,33 @@
+# Solitude Color Palette
+bg="#101315"
+fg="#cacccc"
+
+# Dracula-compatible names (used by n-tmux/dracula in powerline mode)
+dark_purple="#4b4e55"
+light_purple="#a5aeb4"
+orange="#de6145"
+red="#de6145"
+cyan="#707070"
+green="#9fa5a9"
+pink="#aeaeae"
+yellow="#d9dbdc"
+dark_gray="#0a0c0e"
+gray="#101315"
+white="#cacccc"
+
+# n-tmux theme tokens
+base="#101315"
+surface="#0a0c0e"
+overlay="#101315"
+muted="#4b4e55"
+subtle="#5d6367"
+text="#cacccc"
+color1="#798186"
+color2="#9fa5a9"
+color3="#de6145"
+color4="#5d6367"
+color5="#aeaeae"
+color6="#707070"
+highlight1="#0a0c0e"
+highlight2="#0a0c0e"
+highlight3="#a5aeb4"

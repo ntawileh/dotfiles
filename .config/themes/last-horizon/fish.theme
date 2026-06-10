@@ -1,0 +1,29 @@
+# name: 'LastHorizon'
+# preferred_background: 0c0b0c
+
+fish_color_normal FAFCFB
+fish_color_command 87a9b0
+fish_color_param a5a0b6
+fish_color_keyword b59790
+fish_color_quote c4d8e2
+fish_color_redirection 6B5E73
+fish_color_end b59790
+fish_color_comment 584e51
+fish_color_error c38b7b
+fish_color_gray 584e51
+fish_color_selection --background=b59790
+fish_color_search_match --background=b59790
+fish_color_option 87a9b0
+fish_color_operator 6B5E73
+fish_color_escape a5a0b6
+fish_color_autosuggestion 584e51
+fish_color_cancel c38b7b
+fish_color_cwd b59790
+fish_color_user FAFCFB
+fish_color_host 87a9b0
+fish_color_host_remote 87a9b0
+fish_color_status c38b7b
+fish_pager_color_progress 584e51
+fish_pager_color_prefix b59790
+fish_pager_color_completion FAFCFB
+fish_pager_color_description 584e51
