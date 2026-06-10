@@ -207,7 +207,7 @@ local function parse_date(date_str)
     -- Parse date string
     local year, month, day = date_str:match("^(%d%d%d%d)%-(%d%d)%-(%d%d)$")
     if not year then
-        error("Invalid date format")
+        error("Invalid date format " .. date_str)
     end
 
     -- Convert string to numbers
@@ -391,8 +391,12 @@ local process_tasks = function(items)
     return todo_items
 end
 
+--- Searches the Obsidian vault for todo items tagged with `task_tag` and opens
+--- them in a snacks.picker window. Ignores files under `ignore_dirs`.
+--- Runs ripgrep asynchronously; results are parsed, scored by due date, and
+--- displayed sorted by score ascending (most urgent first).
 M.show_tasks = function()
-    local cmd = build_ripgrep_cmd(nil, { cwd = vault_path, glob = "!/.obsidian/", ignore_case = true })
+    local cmd = build_ripgrep_cmd(nil, { cwd = vault_path, glob = "!/.obsidian/", ignore_case = true, additional_args = { "--glob", "!CLAUDE.md" } })
     vim.system(cmd, { text = true }, function(out)
         vim.schedule(function()
             local todo_items = process_tasks(vim.split(out.stdout, "\n"))

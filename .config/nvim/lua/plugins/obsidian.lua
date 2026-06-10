@@ -4,39 +4,29 @@ local inbox_dir = "0-Inbox"
 return {
     --"epwalsh/obsidian.nvim",
     "obsidian-nvim/obsidian.nvim",
-    -- version = "*", -- recommended, use latest release instead of latest commit
-    lazy = true,
-    -- ft = "markdown",
-    -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-    event = {
-        --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-        --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-        "BufReadPre "
-            .. vault_path
-            .. "/**.md",
-        "BufNewFile " .. vault_path .. "/**.md",
-    },
-    dependencies = {
-        -- Required.
-        "nvim-lua/plenary.nvim",
-        -- "hrsh7th/nvim-cmp",
-        -- "nvim-telescope/telescope.nvim",
-        -- "ibhagwan/fzf-lua",
-        -- "nvim-treesitter/nvim-treesitter",
-    },
+    version = "*", -- recommended, use latest release instead of latest commit
+    ft = "markdown",
+    -- dependencies = {
+    --     -- Required.
+    --     "nvim-lua/plenary.nvim",
+    --     -- "hrsh7th/nvim-cmp",
+    --     -- "nvim-telescope/telescope.nvim",
+    --     -- "ibhagwan/fzf-lua",
+    --     -- "nvim-treesitter/nvim-treesitter",
+    -- },
 
     keys = {
         { "<leader>o", "", desc = "Obsidian" },
-        { "<leader>od", ":ObsidianToday<cr>", desc = "obsidian [d]aily" },
-        { "<leader>oT", ":ObsidianToday 1<cr>", desc = "obsidian [T]omorrow" },
-        { "<leader>oy", ":ObsidianToday -1<cr>", desc = "obsidian [y]esterday" },
-        { "<leader>ob", ":ObsidianBacklinks<cr>", desc = "obsidian [b]acklinks" },
-        { "<leader>ol", ":ObsidianLink<cr>", desc = "obsidian [l]ink selection" },
-        { "<leader>of", ":ObsidianFollowLink<cr>", desc = "obsidian [f]ollow link" },
-        { "<leader>on", ":ObsidianNew<cr>", desc = "obsidian [n]ew" },
-        { "<leader>os", ":ObsidianSearch<cr>", desc = "obsidian [s]earch" },
-        { "<leader>oO", ":ObsidianQuickSwitch<cr>", desc = "obsidian [O]pen quickswitch" },
-        { "<leader>oo", ":ObsidianOpen<cr>", desc = "obsidian [o]pen in app" },
+        { "<leader>od", ":Obsidian today<cr>", desc = "obsidian [d]aily" },
+        { "<leader>oT", ":Obsidian today 1<cr>", desc = "obsidian [T]omorrow" },
+        { "<leader>oy", ":Obsidian yesterday<cr>", desc = "obsidian [y]esterday" },
+        { "<leader>ob", ":Obsidian backlinks<cr>", desc = "obsidian [b]acklinks" },
+        { "<leader>ol", ":Obsidian link<cr>", desc = "obsidian [l]ink selection" },
+        { "<leader>of", ":Obsidian follow_link<cr>", desc = "obsidian [f]ollow link" },
+        { "<leader>on", ":Obsidian new<cr>", desc = "obsidian [n]ew" },
+        { "<leader>os", ":Obsidian search<cr>", desc = "obsidian [s]earch" },
+        { "<leader>oO", ":Obsidian quick_switch<cr>", desc = "obsidian [O]pen quickswitch" },
+        { "<leader>oo", ":Obsidian open<cr>", desc = "obsidian [o]pen in app" },
         { "<leader>oP", ":Obsidian paste_img <cr>", desc = "obsidian [P]aste image" },
         {
             "<leader>ot",
@@ -48,31 +38,28 @@ return {
     },
 
     cmd = {
-        "ObsidianOpen",
-        "ObsidianNew",
-        "ObsidianQuickSwitch",
-        "ObsidianFollowLink",
-        "ObsidianBacklinks",
-        "ObsidianToday",
-        "ObsidianYesterday",
-        "ObsidianTemplate",
-        "ObsidianSearch",
-        "ObsidianLink",
-        "ObsidianLinkNew",
+        "Obsidian",
     },
 
+    ---@module 'obsidian'
+    ---@type obsidian.config
     opts = {
+        legacy_commands = false,
         -- dir = vault_path, -- no need to call 'vim.fn.expand' here
         workspaces = {
             {
                 name = "nadim",
                 path = vault_path,
             },
+            {
+                name = "dev",
+                path = "~/Documents/notes-dev",
+            },
         },
-        completion = {
-            nvim_cmp = false,
-            blink = true,
-        },
+        -- completion = {
+        --     nvim_cmp = false,
+        --     blink = true,
+        -- },
 
         daily_notes = {
             folder = "5-Daily",
@@ -83,22 +70,9 @@ return {
             -- alias_format = "%B %-d, %Y",
         },
 
-        disable_frontmatter = false,
-
-        -- TODO: configure to my liking
-        -- Optional, alternatively you can customize the frontmatter data.
-        note_frontmatter_func = function(note)
-            -- This is equivalent to the default frontmatter function.
-            -- local out = { id = note.id, aliases = note.aliases, tags = note.tags }
-            -- -- `note.metadata` contains any manually added fields in the frontmatter.
-            -- -- So here we just make sure those fields are kept in the frontmatter.
-            -- if note.metadata ~= nil and require("obsidian").util.table_length(note.metadata) > 0 then
-            --   for k, v in pairs(note.metadata) do
-            --     out[k] = v
-            --   end
-            -- end
-            -- return out
-        end,
+        frontmatter = {
+            enabled = true,
+        },
 
         -- Optional, for templates (see below).
         templates = {
@@ -107,10 +81,6 @@ return {
             date_format = "%Y-%m-%d-%a",
             time_format = "%H:%M",
         },
-
-        follow_url_func = function(url)
-            vim.fn.jobstart({ "open", url })
-        end,
 
         open = {
             func = function(uri)
@@ -154,31 +124,31 @@ return {
         },
 
         attachments = {
-            img_folder = "meta/attachments",
+            folder = "meta/attachments",
             confirm_image_paste = true,
         },
 
         new_notes_location = "notes_subdir",
 
-        -- Optional, customize how note IDs are generated given an optional title.
-        ---@param title string|?
-        ---@return string
-        note_id_func = function(title)
-            -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
-            -- In this case a note with the title 'My new note' will be given an ID that looks
-            -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
-            local suffix = ""
-            if title ~= nil then
-                -- If title is given, transform it into valid file name.
-                suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
-            else
-                -- If title is nil, just add 4 random uppercase letters to the suffix.
-                for _ = 1, 4 do
-                    suffix = suffix .. string.char(math.random(65, 90))
-                end
-            end
-            return tostring(os.time()) .. "-" .. suffix
-        end,
+        -- -- Optional, customize how note IDs are generated given an optional title.
+        -- ---@param title string|?
+        -- ---@return string
+        -- note_id_func = function(title)
+        --     -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
+        --     -- In this case a note with the title 'My new note' will be given an ID that looks
+        --     -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
+        --     local suffix = ""
+        --     if title ~= nil then
+        --         -- If title is given, transform it into valid file name.
+        --         suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+        --     else
+        --         -- If title is nil, just add 4 random uppercase letters to the suffix.
+        --         for _ = 1, 4 do
+        --             suffix = suffix .. string.char(math.random(65, 90))
+        --         end
+        --     end
+        --     return tostring(os.time()) .. "-" .. suffix
+        -- end,
 
         -- Optional, customize how note file names are generated given the ID, target directory, and title.
         ---@param spec { id: string, dir: obsidian.Path, title: string|? }

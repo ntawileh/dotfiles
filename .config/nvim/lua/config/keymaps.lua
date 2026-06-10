@@ -1,5 +1,4 @@
 local keymap = vim.keymap
-local opts = { noremap = true, silent = true }
 
 -- use jk/kj to exit insert mode
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
@@ -24,9 +23,7 @@ keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
-keymap.set("n", "<leader>rC", function()
-    require("ntawileh.hsl").cycleColor()
-end, { desc = "Cycle color formats (hex/hsl/rgb)" })
+keymap.set("n", "<leader>rC", vim.lsp.document_color.color_presentation, { desc = "Cycle color formats (hex/hsl/rgb)" })
 
 vim.keymap.set("n", "<leader>rn", function()
     return ":IncRename " .. vim.fn.expand("<cword>")

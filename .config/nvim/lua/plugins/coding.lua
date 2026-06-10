@@ -7,6 +7,7 @@ return {
                 mux = {
                     backend = "tmux",
                     enabled = true,
+                    create = "split",
                 },
             },
         },
@@ -79,23 +80,5 @@ return {
                 },
             },
         },
-    },
-    -- Refactoring tool
-    {
-        "ThePrimeagen/refactoring.nvim",
-        keys = {
-            {
-                "<leader>r",
-                function()
-                    require("refactoring").select_refactor()
-                end,
-                desc = "Refactor",
-                mode = "v",
-                noremap = true,
-                silent = true,
-                expr = false,
-            },
-        },
-        opts = {},
     },
 }

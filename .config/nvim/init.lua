@@ -11,17 +11,9 @@ end
 vim.print = _G.dd
 
 require("config.lazy")
+vim.lsp.document_color.enable(true, { "css" }, { style = "virtual" })
 
--- require("lualine").setup({
--- 	options = {
--- 		theme = "codedark",
--- 		section_separators = "",
--- 		component_separators = "",
--- 	},
--- })
-
-require("ntawileh.formatting")
--- require("ntawileh.supermaven").register_ai_keymaps()
+-- require("ntawileh.formatting")
 
 vim.diagnostic.config({
     virtual_text = false,
@@ -32,19 +24,3 @@ vim.diagnostic.config({
         source = true,
     },
 })
-
--- vim.diagnostic.config({
---     signs = { priority = 9999 },
---     underline = true,
---     update_in_insert = false, -- false so diags are updated on InsertLeave
---     virtual_text = { current_line = true, severity = { min = "INFO", max = "WARN" } },
---     virtual_lines = { current_line = true, severity = { min = "ERROR" } },
---     severity_sort = true,
---     float = {
---         focusable = false,
---         style = "minimal",
---         border = "rounded",
---         source = true,
---         header = "",
---     },
--- })
