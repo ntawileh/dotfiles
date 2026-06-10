@@ -1,5 +1,5 @@
 function avantosaws -d "load aws env vars for avantos"
-    set config (fd --max-depth 1 --glob '*' ~/dev/a/aws/ | fzf --prompt="AWS Environments > " --height=~50% --layout=reverse --border --exit-0)
+    set config (fd --max-depth 1 --glob '*' ~/dev/a/aws/ | gum choose --header "Select AWS environment")
 
     if test -z "$config"
         echo "No AWS environment selected."

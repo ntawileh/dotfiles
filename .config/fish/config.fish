@@ -30,7 +30,8 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 
 set -gx IDF_PATH $HOME/esp/esp-idf
 set -gx EDITOR nvim
-set -gx PATH $PATH $HOME/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/local/opt/python@3/libexec/bin
+set -gx PATH $HOME/bin /opt/homebrew/bin $PATH
+set -gx PATH $PATH /usr/sbin /sbin
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 set -U FZF_DEFAULT_COMMAND "fd -H"
@@ -70,3 +71,7 @@ set -e -gU FZF_DEFAULT_OPTS
 if [ -f "$HOME/.config/themes/current/fzf.fish" ]
     . "$HOME/.config/themes/current/fzf.fish"
 end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
