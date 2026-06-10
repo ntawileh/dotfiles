@@ -4,7 +4,7 @@ scan_timeout = 10
 command_timeout = 200
 add_newline = true
 right_format = """$cmd_duration"""
-format = "[$directory$git_branch$git_status]($style)$character"
+format = "$aws\n[$directory$git_branch$git_status]($style)$character"
 
 [line_break]
 disabled = false
@@ -37,7 +37,7 @@ disabled = false
 [git_branch]
 disabled = false
 symbol = " "
-format = "[$branch]($style) "
+format = "[$symbol$branch]($style) "
 #format = "[\\[$symbol$branch\\]]($style)"
 #ignore_branches = ["master", "main"]
 
@@ -69,8 +69,11 @@ deleted = ""
 #disabled = true
 
 [aws]
-symbol = "  "
-disabled = true
+format = '[$symbol$profile]($style) '
+style = 'bold blue'
+symbol = '🅰 '
+[aws.profile_aliases]
+Enterprise_Naming_Scheme-voidstars = 'void**'
 
 [azure]
 disabled = true

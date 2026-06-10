@@ -29,4 +29,18 @@ startup_command = "y"
 [[session]]
 name = "second brain 🧠"
 path = "~/Documents/notes"
-startup_command = "nvim +ObsidianToday && exit"
+startup_command = "nvim +'Obsidian today' && exit"
+
+[[session]]
+name = "avantos/review 👀️"
+path = "~/dev/a/avantos/review"
+startup_command = "gh dash"
+
+[[session]]
+name = "avantos/main"
+path = "~/dev/a/avantos/main"
+
+[[session]]
+name = "avantos/build 👷‍♂️"
+path = "~/dev/a/avantos/build"
+
