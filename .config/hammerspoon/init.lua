@@ -7,6 +7,9 @@ local switcher_chrome = hs.window.switcher.new({ "Google Chrome" }, {
     showOtherSpaces = false,
 })
 
+-- Create a switcher that only looks at all spaces
+local switcher = hs.window.switcher.new(hs.window.filter.new():setDefaultFilter({}))
+
 hs.alert.show("Config loaded")
 hs.hotkey.bind(hyper, "\\", function()
     hs.reload()
@@ -49,4 +52,13 @@ end)
 hs.hotkey.bind(hyper, "B", function()
     hs.application.launchOrFocus("Google Chrome")
     switcher_chrome:next()
+end)
+
+-- Bind Alt+Tab to cycle to the next/previous window
+hs.hotkey.bind("alt", "tab", function()
+    switcher:next()
+end)
+
+hs.hotkey.bind("alt-shift", "tab", "Prev window", function()
+    switcher:previous()
 end)

@@ -26,7 +26,7 @@ shell-integration-features = "no-cursor,sudo,title"
 ## UI / window ##
 #################
 bold-is-bright = true
-macos-window-shadow = false
+macos-window-shadow = true
 mouse-hide-while-typing = true
 window-decoration = auto
 window-colorspace = display-p3
@@ -50,8 +50,6 @@ font-family = "Symbols Nerd Font Mono"
 # font-family = "Symbols Nerd Font Mono"
 font-size = 20
 macos-window-shadow = false
-mouse-hide-while-typing = true
-window-decoration = false
 window-padding-x = 16
 window-padding-y = 10
 
