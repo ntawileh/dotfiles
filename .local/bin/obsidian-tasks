@@ -1,0 +1,209 @@
+#!/usr/bin/env bash
+#
+# obsidian-tasks — replicates the default view of the nvim task picker in
+# lua/ntawileh/obsidian.lua. Finds `#todo` tasks in the Obsidian vault, keeps
+# the ones that are NOT completed and are due-today / overdue / have no due
+# date, sorts them most-urgent-first, and prints them.
+#
+# Usage:
+#   obsidian-tasks               pretty text output (like the nvim picker text)
+#   obsidian-tasks --json        JSON array of task objects
+#   obsidian-tasks --alfred      Alfred Script Filter JSON ({"items":[...]})
+#   obsidian-tasks --vault NAME  Obsidian vault name for advanced-uri args
+#                                (default "notes"); used by --alfred `arg`.
+#
+# All per-line parsing/date math is done in a single awk pass (no per-task
+# sed/date subprocesses) so it stays fast on large vaults.
+#
+set -euo pipefail
+
+# ---- Config (mirrors obsidian.lua) ------------------------------------------
+TASK_TAG="#todo"
+VAULT_PATH="$HOME/Documents/notes"
+
+MODE=text
+VAULT_NAME="notes"
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+    --json)
+        MODE=json
+        shift
+        ;;
+    --alfred)
+        MODE=alfred
+        shift
+        ;;
+    --vault)
+        VAULT_NAME="${2:-}"
+        shift 2
+        ;;
+    --vault=*)
+        VAULT_NAME="${1#--vault=}"
+        shift
+        ;;
+    *)
+        echo "usage: obsidian-tasks [--json|--alfred] [--vault NAME]" >&2
+        exit 2
+        ;;
+    esac
+done
+
+TODAY="$(date +%Y-%m-%d)"
+
+# URL character class (no backslashes -> passes cleanly through awk -v).
+URLCLASS='[A-Za-z0-9._~:/?#@!$&'"'"'()*+,;=%-]+'
+
+rg -t md --no-heading --color=never --line-number --with-filename --column --no-messages \
+    -i --glob '!/.obsidian/' --glob '!CLAUDE.md' \
+    '^\s*[-+*]\s+\[.?\].*#todo' "$VAULT_PATH" 2>/dev/null |
+    awk -v today="$TODAY" -v tag="$TASK_TAG" -v vault="$VAULT_PATH" \
+        -v mode="$MODE" -v urlclass="$URLCLASS" -v vaultname="$VAULT_NAME" '
+    # days since 1970-01-01 for a civil (y,m,d) date (Howard Hinnant algorithm)
+    function days(y, m, d,   yy, era, yoe, doy, doe) {
+        yy  = y - (m <= 2)
+        era = int((yy >= 0 ? yy : yy - 399) / 400)
+        yoe = yy - era * 400
+        doy = int((153 * (m + (m > 2 ? -3 : 9)) + 2) / 5) + d - 1
+        doe = yoe * 365 + int(yoe / 4) - int(yoe / 100) + doy
+        return era * 146097 + doe - 719468
+    }
+    function reldate(diff,   a, val, unit) {
+        if (diff == 0)  return "today"
+        if (diff == 1)  return "tomorrow"
+        if (diff == -1) return "yesterday"
+        a = diff < 0 ? -diff : diff
+        if      (a < 7)   { val = a;            unit = "day"   }
+        else if (a < 30)  { val = int(a / 7);   unit = "week"  }
+        else if (a < 365) { val = int(a / 30);  unit = "month" }
+        else              { val = int(a / 365); unit = "year"  }
+        if (val > 1) unit = unit "s"
+        if (diff < 0) return val " " unit " ago"
+        else          return "in " val " " unit
+    }
+    function jesc(s) {
+        gsub(/\\/, "\\\\", s)
+        gsub(/"/,  "\\\"", s)
+        gsub(/\t/, "\\t",  s)
+        return s
+    }
+    # percent-encode for a URL query value (byte-wise; leaves RFC3986 unreserved)
+    function urlenc(s,   i, c, out) {
+        out = ""
+        for (i = 1; i <= length(s); i++) {
+            c = substr(s, i, 1)
+            if (c ~ /[A-Za-z0-9._~-]/) out = out c
+            else if (c in ord)         out = out sprintf("%%%02X", ord[c])
+            else                       out = out c
+        }
+        return out
+    }
+    BEGIN {
+        for (i = 0; i < 256; i++) ord[sprintf("%c", i)] = i
+        split(today, T, "-")
+        today_serial = days(T[1] + 0, T[2] + 0, T[3] + 0)
+    }
+    {
+        line = $0
+        # split "file:line:column:content" (content may contain colons)
+        p = index(line, ":"); file    = substr(line, 1, p - 1); rest    = substr(line, p + 1)
+        p = index(rest, ":"); lineno  = substr(rest, 1, p - 1); rest    = substr(rest, p + 1)
+        p = index(rest, ":"); column  = substr(rest, 1, p - 1); content = substr(rest, p + 1)
+
+        # ignore dirs (meta, 9-Archive)
+        if (index(file, vault "/meta/") || index(file, vault "/9-Archive/")) next
+
+        # replace URLs with [[URL]] (mailto, ftp, http(s), www)
+        gsub("mailto:" urlclass,           "[[URL]]", content)
+        gsub("(https?|ftp)://" urlclass,   "[[URL]]", content)
+        gsub("www\\." urlclass,            "[[URL]]", content)
+
+        # first [..] after the bullet is the checkbox; completed if it has non-space
+        checkbox = ""; completed = 0
+        if (match(content, /^[ \t]*[*-][ \t]*\[[^]]*\]/)) {
+            box = substr(content, RSTART, RLENGTH)
+            if (match(box, /\[[^]]*\]/)) {
+                inside = substr(box, RSTART + 1, RLENGTH - 2)
+                checkbox = substr(box, RSTART, RLENGTH)
+                if (inside ~ /[^ \t]/) completed = 1
+            }
+        }
+
+        # due::YYYY-MM-DD attribute
+        due = ""
+        if (match(content, /\[due::[^]]*\]/)) {
+            dtok = substr(content, RSTART, RLENGTH)
+            due  = substr(dtok, 7, length(dtok) - 7)   # strip "[due::" and trailing "]"
+            gsub(/^[ \t]+|[ \t]+$/, "", due)
+        }
+
+        # title: drop bullet+checkbox, then the #todo tag, then inline [k::v] attrs
+        title = content
+        sub(/^[ \t]*[*-][ \t]*\[[^]]*\][ \t]*/, "", title)
+        gsub(tag "[ \t]+", "", title)
+        gsub(/\[[^]:[]+::[^]]*\][ \t]*/, "", title)
+
+        # scoring + due age
+        has_due = 0; age = 0; score = -1000; rel = ""; overdue = 0
+        if (due ~ /^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$/) {
+            split(due, D, "-")
+            age     = days(D[1] + 0, D[2] + 0, D[3] + 0) - today_serial
+            has_due = 1
+            score   = age
+            rel     = reldate(age)
+            overdue = (age < 0) ? 1 : 0
+        }
+
+        # default-view filter: hide completed; hide future (age > 0)
+        if (completed) next
+        if (has_due && age > 0) next
+
+        # emit "score \t payload"; sorted by score desc downstream
+        if (mode == "json") {
+            if (has_due)
+                due_obj = "{\"date\":\"" jesc(due) "\",\"age\":" age \
+                          ",\"is_overdue\":" (overdue ? "true" : "false") \
+                          ",\"relative_date\":\"" jesc(rel) "\"}"
+            else
+                due_obj = "null"
+            payload = "  {\"title\":\"" jesc(title) "\",\"checkbox\":\"" jesc(checkbox) \
+                      "\",\"completed\":false,\"score\":" score \
+                      ",\"file\":\"" jesc(file) "\",\"line\":" lineno \
+                      ",\"column\":" column ",\"due\":" due_obj "}"
+        } else if (mode == "alfred") {
+            relfile = file
+            if (index(file, vault "/") == 1) relfile = substr(file, length(vault) + 2)
+            subtitle = (has_due ? rel : "no due date") " — " relfile
+            arg = "obsidian://adv-uri?vault=" urlenc(vaultname) \
+                  "&filepath=" urlenc(relfile) "&line=" lineno
+            payload = "    {\"title\":\"" jesc(title) "\"," \
+                      "\"subtitle\":\"" jesc(subtitle) "\"," \
+                      "\"uid\":\"" jesc(file ":" lineno ":" column) "\"," \
+                      "\"match\":\"" jesc(title) "\"," \
+                      "\"arg\":\"" jesc(arg) "\"," \
+                      "\"variables\":{\"line\":\"" lineno "\",\"column\":\"" column "\"}}"
+        } else {
+            if (has_due) payload = "- " checkbox " *" rel "* " title
+            else         payload = "- " checkbox " " title
+        }
+        printf "%d\t%s\n", score, payload
+    }
+' |
+    sort -t $'\t' -k1,1nr |
+    cut -f2- |
+    {
+        case "$MODE" in
+        json)
+            awk 'BEGIN { print "[" }
+                 { if (NR > 1) printf ",\n"; printf "%s", $0 }
+                 END { if (NR) printf "\n"; print "]" }'
+            ;;
+        alfred)
+            awk 'BEGIN { print "{"; print "  \"items\": [" }
+                 { if (NR > 1) printf ",\n"; printf "%s", $0 }
+                 END { if (NR) printf "\n"; print "  ]"; print "}" }'
+            ;;
+        *)
+            cat
+            ;;
+        esac
+    }
